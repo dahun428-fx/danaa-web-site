@@ -53,7 +53,7 @@ export default function CompanyOrganizationPage() {
         <div className={styles.heroImage}>
           <Image
             src="/resources/images/sub/sub_0104_img_01.jpg"
-            alt="바이오에이지 조직도"
+            alt="다나아데이터 조직도"
             width={960}
             height={600}
             priority

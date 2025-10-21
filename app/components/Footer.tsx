@@ -19,17 +19,20 @@ export function Footer() {
               height={38}
             />
             <p>
-              서울특별시 봉은사로 114길 12
+              서울특별시 강남구 봉은사로 644(삼성동)
               <br />
               TEL 02-550-8967 · FAX 02-550-8852
             </p>
-            <small>© {new Date().getFullYear()} BIO-AGE Co.,Ltd.</small>
+            <small>
+              © {new Date().getFullYear()}
+              DaNaA Data Co., Ltd. All rights reserved.
+            </small>
           </div>
           <div className={styles.links}>
             <strong>문의</strong>
             <ul>
               <li>
-                <a href="mailto:contact@danaa.co.kr">contact@danaa.co.kr</a>
+                <a href="mailto:contact@danaa.co.kr">jh1016@danai.co.kr</a>
               </li>
               <li>
                 <a href="tel:025508967">02-550-8967</a>

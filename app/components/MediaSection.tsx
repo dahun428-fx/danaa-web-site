@@ -16,7 +16,7 @@ export function MediaSection() {
           <div className={styles.videoWrapper}>
             <iframe
               src="https://www.youtube.com/embed/iK3DdfEbiaE"
-              title="SBS 모닝와이드 바이오에이지 소개"
+              title="SBS 모닝와이드 다나아데이터 소개"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               loading="lazy"

@@ -31,7 +31,7 @@ export default function SupportContactPage() {
           <label htmlFor="name" className={styles.fieldLabel}>
             기관/개인명
           </label>
-          <input id="name" name="name" placeholder="예) 바이오에이지 병원 / 홍길동" />
+          <input id="name" name="name" placeholder="예) 다나아데이터 병원 / 홍길동" className="w-full border border-gray-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100" />
         </div>
         <div className={styles.row}>
           <label htmlFor="phone" className={styles.fieldLabel}>

@@ -11,7 +11,7 @@ export default function PrNewsPage({
     <BoardPage
       moduleId={4}
       title="보도자료"
-      description="언론에 소개된 바이오에이지의 소식과 인터뷰를 한눈에 확인하세요."
+      description="언론에 소개된 다나아데이터의 소식과 인터뷰를 한눈에 확인하세요."
       basePath="/pr/news"
       searchParams={searchParams}
     />

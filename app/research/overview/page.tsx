@@ -84,7 +84,7 @@ export default function ResearchOverviewPage() {
         <header>
           <h2>설립 목적</h2>
           <p>
-            바이오에이지는 노화를 정밀하게 측정하고 관리할 수 있는 기술을 통해
+            다나아데이터는 노화를 정밀하게 측정하고 관리할 수 있는 기술을 통해
             건강수명을 연장하는 것을 목표로 합니다.
           </p>
         </header>

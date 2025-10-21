@@ -32,7 +32,9 @@ export function FeaturesSection() {
     <section className={styles.section} id="benefits">
       <div className="container">
         <header className={styles.header}>
-          <p>바이오에이지 생체나이</p>
+<p className="text-sm tracking-wider uppercase text-blue-600 mb-3">
+            다나아데이터 생체나이
+          </p>
           <h2>이런 점이 좋습니다</h2>
         </header>
         <div className={styles.grid}>
