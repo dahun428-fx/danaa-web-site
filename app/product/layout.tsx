@@ -10,7 +10,12 @@ export default function ProductLayout({
   return (
     <>
       <Header />
-      <Banner title="상품소개" />
+      <Banner
+        title="상품소개"
+        description="개인부터 기업의 건강상태까지 풍부한 데이터를 바탕으로
+설계된 평생 건강관리 시스템"
+        backgroundImage="/resources/images/sub/sub_top_img_02.jpg"
+      />
       <ProductSubNav />
       {children}
       <Footer />

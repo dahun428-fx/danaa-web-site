@@ -10,7 +10,11 @@ export default function CompanyLayout({
   return (
     <>
       <Header />
-      <Banner title="회사소개" />
+      <Banner
+        title="회사소개"
+        description="국내 유일의 생체나이 개발기업, 바이오에이지를 만나보세요!"
+        backgroundImage="/resources/images/sub/sub_top_img_01.jpg"
+      />
       <CompanySubNav />
       {children}
       <Footer />

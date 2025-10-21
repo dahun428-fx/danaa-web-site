@@ -12,7 +12,11 @@ export default function PrLayout({
   return (
     <>
       <Header />
-      <Banner title="PR센터" />
+      <Banner
+        title="PR센터"
+        description="바이오에이지는 고객님의 의견을 소중히 생각합니다."
+        backgroundImage="/resources/images/sub/sub_top_img_05.jpg"
+      />
       <PrSubNav />
       {children}
       <Footer />
