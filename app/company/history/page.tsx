@@ -24,7 +24,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
   {
     image: {
       src: "/resources/images/sub/sub_0103_img_01.jpg",
-      alt: "연구 장비를 활용한 바이오에이지의 헬스케어 혁신",
+      alt: "연구 장비를 활용한 다나아데이터의 헬스케어 혁신",
       position: "right",
     },
     years: [
@@ -64,7 +64,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
         year: "2013",
         events: [
           { month: "1월", description: "노갑용 대표 취임" },
-          { month: "8월", description: "바이오에이지 통계분석 서비스 런칭" },
+          { month: "8월", description: "다나아데이터 통계분석 서비스 런칭" },
           {
             month: "8월",
             description: "생체나이 측정시스템 업그레이드(스마트케어 출시)",
@@ -75,7 +75,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
       {
         year: "2011",
         events: [
-          { month: "10월", description: "제4회 바이오에이지 세미나 개최" },
+          { month: "10월", description: "제4회 다나아데이터 세미나 개최" },
           {
             month: "12월",
             description: "파워에이징 프로그램 운영(힐리언스 선마을)",
@@ -86,15 +86,15 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
         year: "2010",
         events: [
           { month: "6월", description: "사옥 이전 (서울 강남구 삼성동)" },
-          { month: "11월", description: "제3회 바이오에이지 세미나 개최" },
+          { month: "11월", description: "제3회 다나아데이터 세미나 개최" },
         ],
       },
       {
         year: "2009",
         events: [
           { month: "4월", description: "윤재춘·박경용 공동대표 취임" },
-          { month: "9월", description: "제2회 바이오에이지 세미나 개최" },
-          { month: "10월", description: "바이오에이지 플러스 출시" },
+          { month: "9월", description: "제2회 다나아데이터 세미나 개최" },
+          { month: "10월", description: "다나아데이터 플러스 출시" },
         ],
       },
     ],
@@ -105,7 +105,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
         year: "2008",
         events: [
           { month: "5월", description: "체형나이 프로젝트 운영(힐리언스 선마을)" },
-          { month: "10월", description: "제1회 바이오에이지 세미나 개최" },
+          { month: "10월", description: "제1회 다나아데이터 세미나 개최" },
         ],
       },
       {
@@ -133,7 +133,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
           {
             month: "9월",
             description:
-              "대한병원협회 준회원 가입 및 Bio-Age® 정책사업 추진 / 사명 변경(㈜바이오에이지)",
+              "대한병원협회 준회원 가입 및 Bio-Age® 정책사업 추진 / 사명 변경(㈜다나아데이터)",
           },
         ],
       },

@@ -97,7 +97,7 @@ export default function ProductBioAgePage() {
           <h1>생체나이 측정 시스템</h1>
           <p className={styles.caption}>
             세계 최초로 40만 건 이상의 임상 데이터를 기반으로 개발된
-            바이오에이지 생체나이 측정 시스템은 설문이 아닌 실제 검진 데이터를
+            다나아데이터 생체나이 측정 시스템은 설문이 아닌 실제 검진 데이터를
             분석하여 개인의 건강상태와 노화 정도를 정밀하게 진단합니다.
           </p>
           <p className={styles.caption}>

@@ -25,7 +25,7 @@ const SLIDES: Slide[] = [
   {
     id: 2,
     eyebrow: "나의 몸은 지금 몇 살일까요?",
-    title: "바이오에이지로 건강 관리 시작",
+    title: "다나아데이터로 건강 관리 시작",
     description:
       "과학적으로 검증된 분석과 맞춤형 리포트를 통해 건강한 라이프스타일을 설계해 보세요.",
     image: "/resources/images/main_slider02.jpg",

@@ -84,7 +84,7 @@ export default function ProductBizcarePage() {
         <div className={styles.heroCopy}>
           <h1>기업건강분석 BIZCARE</h1>
           <p>
-            바이오에이지 BIZCARE는 임직원 건강 데이터를 기반으로 기업의 노화도와
+            다나아데이터 BIZCARE는 임직원 건강 데이터를 기반으로 기업의 노화도와
             건강위험 요인을 분석하고, 맞춤형 프로그램을 설계하는 기업 건강경영
             솔루션입니다.
           </p>

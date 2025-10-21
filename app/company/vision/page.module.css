@@ -27,7 +27,7 @@
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  grid-template-columns: minmax(0, 1fr);
   gap: 2.5rem;
   align-items: center;
 }
@@ -36,6 +36,11 @@
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+}
+
+.heroImage2 {
+  padding: 1rem;
+  background-color: #fff;
 }
 
 .heroImage :global(img) {

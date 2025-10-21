@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./layout.module.css";
+import styles from "../company/layout.module.css";
 
 const LINKS = [
   { label: "보도자료", href: "/pr/news" },

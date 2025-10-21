@@ -14,7 +14,7 @@ export default function SupportLayout({
       <Header />
       <Banner
         title="고객센터"
-        description="바이오에이지는 고객님의 의견을 소중히 생각합니다."
+        description="다나아데이터는 고객님의 의견을 소중히 생각합니다."
         backgroundImage="/resources/images/sub/sub_top_img_04.jpg"
       />
       <SupportSubNav />

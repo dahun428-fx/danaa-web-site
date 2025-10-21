@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import clsx from "clsx";
 
 const SERVICE_LINES = [
   {
@@ -34,7 +35,7 @@ const SERVICE_LINES = [
 const COMPETENCIES = [
   {
     category: "생체나이 예측 기술",
-    product: "바이오에이지 ‘스마트케어’",
+    product: "다나아데이터 ‘스마트케어’",
     points: [
       "임상 데이터를 기반으로 한 생체나이 측정 시스템",
       "개인별 건강검진 데이터로 생체나이와 7가지 기능 나이 측정",
@@ -79,12 +80,12 @@ export default function CompanyVisionPage() {
             영역을 아우르며 건강관리의 새로운 표준을 만들어가고 있습니다.
           </p>
         </div>
-        <div className={styles.heroImage}>
+        <div className={clsx(styles.heroImage, styles.heroImage2)}>
           <Image
             src="/resources/images/sub/sub_0102_img_01.jpg"
             alt="DANAA 사업 영역 개요"
-            width={640}
-            height={480}
+            width={1200}
+            height={1000}
             priority
           />
         </div>

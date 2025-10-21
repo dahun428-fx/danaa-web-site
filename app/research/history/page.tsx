@@ -135,7 +135,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
             description:
               "Bio-Age® Plus 생체나이 측정시스템 상품 개발(1.0 버전)",
           },
-          { month: "10월", description: "바이오에이지 플러스 출시" },
+          { month: "10월", description: "다나아데이터 플러스 출시" },
         ],
       },
       {
@@ -197,7 +197,7 @@ export default function ResearchHistoryPage() {
       <section className={styles.intro}>
         <h1>연구소 연혁</h1>
         <p>
-          바이오에이지 연구소는 2003년 생체나이 측정시스템 개발을 시작으로
+          다나아데이터 연구소는 2003년 생체나이 측정시스템 개발을 시작으로
           지속적인 기술 고도화와 학술 연구를 통해 과학적인 웰에이징 솔루션을
           구축해 왔습니다.
         </p>
