@@ -1,0 +1,166 @@
+.wrapper {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.intro h1 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  color: rgba(15, 23, 42, 0.68);
+  line-height: 1.7;
+}
+
+.tableWrap {
+  border-radius: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.table th,
+.table td {
+  padding: 1.1rem 1rem;
+  text-align: left;
+  font-size: 0.98rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.table th {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.table td {
+  color: rgba(15, 23, 42, 0.75);
+  vertical-align: middle;
+}
+
+.table td:nth-child(1),
+.table th:nth-child(1) {
+  width: 80px;
+  text-align: center;
+}
+
+.table td:nth-child(3),
+.table th:nth-child(3) {
+  width: 140px;
+  text-align: center;
+}
+
+.table td:nth-child(4),
+.table th:nth-child(4) {
+  width: 120px;
+  text-align: center;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.notice {
+  color: #db2777;
+  font-weight: 600;
+}
+
+.titleLink {
+  color: #1d4ed8;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.titleLink:hover {
+  text-decoration: underline;
+}
+
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: rgba(15, 23, 42, 0.6);
+}
+
+.footerLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.externalLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  color: #0ea5e9;
+}
+
+.externalLink:hover {
+  text-decoration: underline;
+}
+
+.pagination {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.pageBtn {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  background: #fff;
+  color: #0f172a;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageBtnActive {
+  border-color: transparent;
+  background: #0ea5e9;
+  color: #fff;
+}
+
+.pageBtn[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 4rem 1.25rem 4.5rem;
+  }
+
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    display: none;
+  }
+}

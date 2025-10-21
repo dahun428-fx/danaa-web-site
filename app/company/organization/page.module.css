@@ -1,0 +1,108 @@
+.wrapper {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.intro h1 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  color: rgba(15, 23, 42, 0.68);
+  line-height: 1.7;
+}
+
+.hero {
+  display: grid;
+  gap: 2rem;
+}
+
+.heroImage {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 28px 56px rgba(15, 23, 42, 0.12);
+}
+
+.heroImage :global(img) {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.structure {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.structure h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.structureList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  padding: 1.75rem;
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.nodeTitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.nodeTitle span {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(15, 23, 42, 0.6);
+  margin-top: 0.25rem;
+}
+
+.nodeChildren {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgba(15, 23, 42, 0.78);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 4rem 1.25rem 4.5rem;
+  }
+
+  .node {
+    padding: 1.5rem;
+  }
+}

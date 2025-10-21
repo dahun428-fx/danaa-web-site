@@ -1,30 +1,33 @@
-import { readFile } from "fs/promises";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import path from "path";
 import "./globals.css";
 
-const HEAD_PATH = path.join(process.cwd(), "generated", "head.html");
+export const metadata: Metadata = {
+  title: "바이오에이지 | DANAA",
+  description:
+    "생체나이 측정과 맞춤형 헬스케어 솔루션을 제공하는 DANAA 바이오에이지 공식 사이트",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "바이오에이지 | DANAA",
+    description:
+      "생체나이 측정과 맞춤형 헬스케어 솔루션으로 건강한 삶을 제안합니다.",
+    url: "https://www.danaa.co.kr",
+    siteName: "DANAA BIO-AGE",
+    locale: "ko_KR",
+    type: "website",
+  },
+};
 
-async function loadHeadHtml(): Promise<string> {
-  try {
-    return await readFile(HEAD_PATH, "utf-8");
-  } catch (error) {
-    console.warn(`Failed to read head HTML from ${HEAD_PATH}:`, error);
-    return "";
-  }
-}
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const headHtml = await loadHeadHtml();
-
   return (
-    <html lang="ko" suppressHydrationWarning>
-      <head dangerouslySetInnerHTML={{ __html: headHtml }} />
-      <body suppressHydrationWarning>{children}</body>
+    <html lang="ko">
+      <body>{children}</body>
     </html>
   );
 }
