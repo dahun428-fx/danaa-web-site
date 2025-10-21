@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 const HERO_LINES = [
   "2002년 2월, 대한생체나이의학연구소 의료진을 중심으로 설립된",
@@ -8,16 +7,18 @@ const HERO_LINES = [
 
 export default function CompanyIntroPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>Company Introduction</p>
-          <h1 className={styles.headline}>
+    <main className="mx-auto w-full max-w-screen-xl px-6 py-20 flex flex-col gap-16 md:px-4 md:py-16">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col gap-6">
+          <p className="text-sm tracking-wider uppercase text-gray-600">
+            Company Introduction
+          </p>
+          <h1 className="text-5xl font-bold text-gray-900 leading-tight flex flex-col gap-2">
             {HERO_LINES.map((line) => (
               <span key={line}>{line}</span>
             ))}
           </h1>
-          <div className={styles.mobileImage}>
+          <div className="block lg:hidden rounded-3xl overflow-hidden shadow-xl">
             <Image
               src="/resources/images/sub/sub01_img01_m.jpg"
               alt="생체나이 시스템 연구 이미지"
@@ -26,8 +27,8 @@ export default function CompanyIntroPage() {
               priority
             />
           </div>
-          <p className={styles.lead}>
-            <strong>
+          <p className="text-lg leading-relaxed text-gray-700">
+            <strong className="block text-xl text-gray-900 mb-3">
               2013년에는 생명공학 벤처기업 ㈜이즈텍과의 합병으로 통계전문가를
               확보하고 유전체 사업 영역으로도 확장했습니다.
             </strong>
@@ -35,7 +36,7 @@ export default function CompanyIntroPage() {
             헬스케어 산업 내 새로운 가능성을 열어가고 있습니다.
           </p>
         </div>
-        <div className={styles.heroImage}>
+        <div className="hidden lg:block rounded-3xl overflow-hidden shadow-2xl">
           <Image
             src="/resources/images/sub/sub01_img01.jpg"
             alt="생체나이 시스템 연구 이미지"
@@ -45,7 +46,7 @@ export default function CompanyIntroPage() {
           />
         </div>
       </section>
-      <section className={styles.content}>
+      <section className="flex flex-col gap-6 text-lg leading-relaxed text-gray-700">
         <p>
           바이오에이지 생체나이는 신체기능 중심의 기존 측정 시스템과 달리,
           검진자의 실제 데이터를 국내 40만 건 이상의 임상 빅데이터와 비교·분석한
@@ -65,10 +66,10 @@ export default function CompanyIntroPage() {
           대한민국의 새로운 국가 경쟁력이 될 수 있도록 최선을 다하겠습니다.
         </p>
       </section>
-      <section className={styles.signature}>
+      <section className="flex flex-col gap-2 text-lg text-gray-700">
         <span>감사합니다.</span>
         <span>
-          ㈜바이오에이지 대표이사 <strong>박은경</strong>
+          ㈜바이오에이지 대표이사 <strong className="font-bold text-gray-900">박은경</strong>
         </span>
       </section>
     </main>

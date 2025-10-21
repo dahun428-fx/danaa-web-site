@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./page.module.css";
 
 const LITERATURE_LINKS = [
   { name: "보건연구정보센터", url: "http://www.richis.org" },
@@ -39,22 +38,28 @@ function LinkTable({
   links: readonly { name: string; url: string }[];
 }) {
   return (
-    <section className={styles.section}>
-      <h2>{title}</h2>
-      <div className={styles.tableWrap}>
-        <table className={styles.table}>
+    <section className="flex flex-col gap-5">
+      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+      <div className="rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-lg">
+        <table className="w-full border-collapse">
           <thead>
             <tr>
-              <th scope="col">사이트명</th>
-              <th scope="col">URL</th>
+              <th scope="col" className="p-4 text-left bg-gray-50 font-semibold text-gray-900">
+                사이트명
+              </th>
+              <th scope="col" className="p-4 text-left bg-gray-50 font-semibold text-gray-900">
+                URL
+              </th>
             </tr>
           </thead>
           <tbody>
             {links.map((item) => (
               <tr key={item.url}>
-                <th scope="row">{item.name}</th>
-                <td>
-                  <Link href={item.url} className={styles.link} target="_blank" rel="noreferrer">
+                <th scope="row" className="p-4 text-left text-base leading-relaxed text-gray-700">
+                  {item.name}
+                </th>
+                <td className="p-4 text-base leading-relaxed text-gray-700">
+                  <Link href={item.url} className="text-blue-700 font-medium hover:underline" target="_blank" rel="noreferrer">
                     {item.url}
                   </Link>
                 </td>
@@ -69,10 +74,10 @@ function LinkTable({
 
 export default function ResearchLinksPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>관련 사이트</h1>
-        <p>
+    <main className="mx-auto w-full max-w-screen-lg px-6 py-20 flex flex-col gap-12 md:px-4 md:py-16">
+      <section className="flex flex-col gap-3">
+        <h1 className="text-4xl font-bold text-gray-900">관련 사이트</h1>
+        <p className="text-lg text-gray-700 leading-relaxed">
           노화 및 웰에이징 연구와 관련된 국내외 문헌 검색 서비스와 학회/단체
           정보를 모았습니다. 추가로 공유하고 싶은 자료가 있으면 언제든지 제안해
           주세요.

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 type OrgUnit = {
   name: string;
@@ -41,16 +40,16 @@ const ORGANIZATION: OrgUnit[] = [
 
 export default function CompanyOrganizationPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>조직/인력</h1>
-        <p>
+    <main className="mx-auto w-full max-w-screen-xl px-6 py-20 flex flex-col gap-14 md:px-4 md:py-16">
+      <section className="flex flex-col gap-3">
+        <h1 className="text-4xl font-bold text-gray-900">조직/인력</h1>
+        <p className="text-lg text-gray-700 leading-relaxed">
           대표이사를 중심으로 전략, 개발, 마케팅, 영업, 경영, 연구 조직이 긴밀하게
           협업하여 생체나이 기반 헬스케어 서비스를 제공합니다.
         </p>
       </section>
-      <section className={styles.hero}>
-        <div className={styles.heroImage}>
+      <section className="grid gap-8">
+        <div className="rounded-3xl overflow-hidden shadow-xl">
           <Image
             src="/resources/images/sub/sub_0104_img_01.jpg"
             alt="바이오에이지 조직도"
@@ -60,17 +59,21 @@ export default function CompanyOrganizationPage() {
           />
         </div>
       </section>
-      <section className={styles.structure}>
-        <h2>주요 조직 구성</h2>
-        <ul className={styles.structureList}>
+      <section className="flex flex-col gap-8">
+        <h2 className="text-2xl font-bold text-gray-900">주요 조직 구성</h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none m-0 p-0">
           {ORGANIZATION.map((unit) => (
-            <li key={unit.name} className={styles.node}>
-              <div className={styles.nodeTitle}>
+            <li key={unit.name} className="flex flex-col gap-3 border border-gray-100 rounded-3xl p-7 bg-white shadow-lg">
+              <div className="text-xl font-semibold text-blue-600">
                 {unit.name}
-                {unit.description ? <span>{unit.description}</span> : null}
+                {unit.description ? (
+                  <span className="block text-base text-gray-600 mt-1">
+                    {unit.description}
+                  </span>
+                ) : null}
               </div>
               {unit.teams ? (
-                <ul className={styles.nodeChildren}>
+                <ul className="list-disc pl-5 flex flex-col gap-1 text-base text-gray-700 leading-relaxed">
                   {unit.teams.map((team) => (
                     <li key={team}>{team}</li>
                   ))}

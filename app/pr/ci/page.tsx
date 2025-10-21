@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 const CI_SECTIONS = [
   {
@@ -42,10 +41,10 @@ const CI_SECTIONS = [
 
 export default function PrCiPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>CI 매뉴얼</h1>
-        <p>
+    <main className="mx-auto w-full max-w-screen-xl px-6 py-20 flex flex-col gap-12 md:px-4 md:py-16">
+      <section className="flex flex-col gap-3">
+        <h1 className="text-4xl font-bold text-gray-900">CI 매뉴얼</h1>
+        <p className="text-lg text-gray-700 leading-relaxed">
           바이오에이지의 시각 정체성을 올바르게 활용하기 위한 기본 가이드입니다.
           워드마크, 로고타입, 전용 색상, 사용 금지 규정을 확인하고 브랜드
           일관성을 유지해 주세요.
@@ -53,9 +52,9 @@ export default function PrCiPage() {
       </section>
 
       {CI_SECTIONS.map((section) => (
-        <section key={section.title} className={styles.section}>
-          <h2>{section.title}</h2>
-          <div className={styles.imageWrap}>
+        <section key={section.title} className="grid gap-4">
+          <h2 className="text-2xl font-bold text-gray-900">{section.title}</h2>
+          <div className="rounded-3xl overflow-hidden shadow-xl">
             <Image
               src={section.image}
               alt={section.title}
@@ -63,13 +62,14 @@ export default function PrCiPage() {
               height={640}
             />
           </div>
-          <p className={styles.description}>{section.description}</p>
+          <p className="text-base leading-relaxed text-gray-700">{section.description}</p>
         </section>
       ))}
 
-      <section className={styles.guide}>
+      <section className="rounded-2xl p-7 bg-purple-100/30 border border-purple-300/70 text-base leading-relaxed text-gray-700">
         사용 시 의문 사항이 있다면{" "}
-        <strong>contact@danaa.co.kr</strong> 또는 <strong>02-550-8967</strong>로
+        <strong className="text-gray-900">contact@danaa.co.kr</strong> 또는{" "}
+        <strong className="text-gray-900">02-550-8967</strong>로
         연락 주세요. 정확한 원본 파일이 필요하시면 담당자에게 요청해 드립니다.
       </section>
     </main>

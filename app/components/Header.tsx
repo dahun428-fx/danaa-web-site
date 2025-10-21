@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import styles from "./Header.module.css";
 
 type NavItem = {
   label: string;
@@ -92,9 +91,13 @@ export function Header() {
   };
 
   return (
-    <header className={styles.wrapper} onMouseEnter={handleMegaMenuEnter} onMouseLeave={handleMegaMenuLeave}>
-      <div className={styles.container}>
-        <Link href="/" className={styles.logo} onClick={handleNavigate}>
+    <header
+      className="sticky top-0 z-50 bg-white/90 border-b border-gray-100 backdrop-blur-sm"
+      onMouseEnter={handleMegaMenuEnter}
+      onMouseLeave={handleMegaMenuLeave}
+    >
+      <div className="mx-auto w-full max-w-screen-xl flex items-center justify-between px-4 py-4 gap-4">
+        <Link href="/" className="inline-flex items-center gap-2 text-lg font-semibold text-gray-900" onClick={handleNavigate}>
           <Image
             src="/resources/images/logo_on.png"
             alt="DANAA BIO-AGE"
@@ -103,14 +106,14 @@ export function Header() {
             priority
           />
         </Link>
-        <nav className={styles.nav}>
-          <ul>
+        <nav className="hidden md:block">
+          <ul className="flex items-center gap-8 list-none m-0 p-0">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className={`${styles.link} ${
-                    isActive(item) ? styles.active : ""
+                  className={`inline-flex items-center gap-1 text-base font-medium text-gray-900 transition-colors duration-300 hover:text-blue-600 ${
+                    isActive(item) ? "text-blue-600 font-semibold" : ""
                   }`}
                   onClick={handleNavigate}
                 >
@@ -122,38 +125,38 @@ export function Header() {
         </nav>
         <button
           type="button"
-          className={styles.mobileToggle}
+          className="md:hidden w-11 h-11 flex items-center justify-center flex-col gap-1.5 bg-transparent border border-gray-200 rounded-xl p-0 cursor-pointer"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           onClick={handleToggle}
         >
-          <span />
-          <span />
-          <span />
+          <span className="block w-5 h-0.5 bg-gray-900 rounded-full transition-transform duration-300 ease-in-out" />
+          <span className="block w-5 h-0.5 bg-gray-900 rounded-full transition-transform duration-300 ease-in-out" />
+          <span className="block w-5 h-0.5 bg-gray-900 rounded-full transition-transform duration-300 ease-in-out" />
         </button>
       </div>
       {isMegaMenuOpen && (
-        <div className={styles.megaMenu}>
-          <div className={styles.megaMenuInner}>
+        <div className="absolute left-0 w-full bg-white border-t border-gray-100 shadow-lg py-6 z-40 opacity-100 visible transform translate-y-0 transition-all duration-300 ease-in-out">
+          <div className="mx-auto w-full max-w-screen-xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-4">
             {navItems.map((item) => (
-              <div key={item.label} className={styles.megaMenuItem}>
+              <div key={item.label} className="flex flex-col gap-3">
                 <Link
                   href={item.href}
-                  className={`${styles.megaMenuMainLink} ${
-                    isActive(item) ? styles.active : ""
+                  className={`text-base font-semibold text-gray-900 pb-2 border-b border-gray-100 ${
+                    isActive(item) ? "text-blue-600" : ""
                   }`}
                   onClick={handleNavigate}
                 >
                   {item.label}
                 </Link>
                 {item.subItems && (
-                  <ul className={styles.megaMenuSubList}>
+                  <ul className="list-none m-0 p-0 flex flex-col gap-2">
                     {item.subItems.map((subItem) => (
                       <li key={subItem.label}>
                         <Link
                           href={subItem.href}
-                          className={styles.megaMenuSubLink}
+                          className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
                           onClick={handleNavigate}
                         >
                           {subItem.label}
@@ -169,20 +172,46 @@ export function Header() {
       )}
       <nav
         id="mobile-menu"
-        className={`${styles.mobileNav} ${open ? styles.mobileNavOpen : ""}`}
+        className={`md:hidden fixed top-0 left-0 w-full h-full bg-white z-50 transform ${open ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}
       >
-        <ul>
+        <div className="flex justify-end p-4">
+          <button
+            type="button"
+            className="w-11 h-11 flex items-center justify-center flex-col gap-1.5 bg-transparent border border-gray-200 rounded-xl p-0 cursor-pointer"
+            aria-label="메뉴 닫기"
+            onClick={handleToggle}
+          >
+            <span className="block w-5 h-0.5 bg-gray-900 rounded-full transform rotate-45 translate-y-1.5" />
+            <span className="block w-5 h-0.5 bg-gray-900 rounded-full transform -rotate-45 -translate-y-1.5" />
+          </button>
+        </div>
+        <ul className="list-none m-0 p-4 flex flex-col gap-4">
           {navItems.map((item) => (
             <li key={item.label}>
               <Link
                 href={item.href}
-                className={`${styles.link} ${
-                  isActive(item) ? styles.active : ""
+                className={`text-lg font-medium text-gray-900 ${
+                  isActive(item) ? "text-blue-600" : ""
                 }`}
                 onClick={handleNavigate}
               >
                 {item.label}
               </Link>
+              {item.subItems && (
+                <ul className="list-none m-0 p-0 pl-4 mt-2 flex flex-col gap-2">
+                  {item.subItems.map((subItem) => (
+                    <li key={subItem.label}>
+                      <Link
+                        href={subItem.href}
+                        className="text-base text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                        onClick={handleNavigate}
+                      >
+                        {subItem.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>

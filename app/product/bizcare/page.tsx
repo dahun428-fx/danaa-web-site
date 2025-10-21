@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 const BUSINESS_NEEDS = [
   {
@@ -79,21 +78,23 @@ const VALUE_TAGS = [
 
 export default function ProductBizcarePage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <h1>기업건강분석 BIZCARE</h1>
-          <p>
+    <main className="mx-auto w-full max-w-screen-xl px-6 py-20 flex flex-col gap-16 md:px-4 md:py-16">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-4xl font-bold text-gray-900 leading-tight">
+            기업건강분석 BIZCARE
+          </h1>
+          <p className="text-base leading-relaxed text-gray-700">
             바이오에이지 BIZCARE는 임직원 건강 데이터를 기반으로 기업의 노화도와
             건강위험 요인을 분석하고, 맞춤형 프로그램을 설계하는 기업 건강경영
             솔루션입니다.
           </p>
-          <p>
+          <p className="text-base leading-relaxed text-gray-700">
             생체나이 결과를 활용해 조직 수준의 건강 문제를 정확히 진단하고,
             실행 가능한 개선 전략과 리포트를 제공하여 건강한 조직 문화를 만듭니다.
           </p>
         </div>
-        <div className={styles.heroImage}>
+        <div className="rounded-3xl overflow-hidden shadow-xl">
           <Image
             src="/resources/images/sub/sub_0202_img_01.jpg"
             alt="기업건강분석 프로그램 소개"
@@ -104,64 +105,68 @@ export default function ProductBizcarePage() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>기업 건강증진 프로그램이 필요한 이유</h2>
-          <p>헬스케어 투자 효과를 극대화하기 위한 고민을 해결합니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-3xl font-bold text-gray-900">기업 건강증진 프로그램이 필요한 이유</h2>
+          <p className="text-base text-gray-700 leading-relaxed">헬스케어 투자 효과를 극대화하기 위한 고민을 해결합니다.</p>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {BUSINESS_NEEDS.map((item) => (
-            <article key={item.title} className={styles.card}>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+            <article key={item.title} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-lg flex flex-col gap-3">
+              <h3 className="text-xl font-semibold text-sky-500">
+                {item.title}
+              </h3>
+              <p className="text-base leading-relaxed text-gray-700">{item.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>주요 특장점</h2>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-3xl font-bold text-gray-900">주요 특장점</h2>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ADVANTAGES.map((advantage) => (
-            <article key={advantage} className={styles.card}>
-              <p>{advantage}</p>
+            <article key={advantage} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-lg flex flex-col gap-3">
+              <p className="text-base leading-relaxed text-gray-700">{advantage}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>적용 프로세스</h2>
-          <p>생체나이 진단부터 맞춤 프로그램 실행까지 체계적으로 지원합니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-3xl font-bold text-gray-900">적용 프로세스</h2>
+          <p className="text-base text-gray-700 leading-relaxed">생체나이 진단부터 맞춤 프로그램 실행까지 체계적으로 지원합니다.</p>
         </header>
-        <div className={styles.processGrid}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {PROCESS.map((stage, index) => (
-            <article key={stage.title} className={styles.process}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{stage.title}</h3>
-              <p>
-                <strong>{stage.summary}</strong>
+            <article key={stage.title} className="rounded-2xl p-7 bg-gray-900 text-white flex flex-col gap-3 shadow-lg">
+              <span className="text-sm tracking-wider uppercase opacity-65">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-xl font-semibold">{stage.title}</h3>
+              <p className="text-base">
+                <strong className="font-bold">{stage.summary}</strong>
               </p>
-              <p>{stage.description}</p>
+              <p className="text-base leading-relaxed text-gray-200">{stage.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>분석 리포트 구성</h2>
-          <p>대상자별로 필요한 정보를 나누어 정확한 의사결정을 돕습니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-3xl font-bold text-gray-900">분석 리포트 구성</h2>
+          <p className="text-base text-gray-700 leading-relaxed">대상자별로 필요한 정보를 나누어 정확한 의사결정을 돕습니다.</p>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {REPORT_BUNDLES.map((bundle) => (
-            <article key={bundle.audience} className={styles.card}>
-              <h3>{bundle.audience}</h3>
-              <p>{bundle.title}</p>
-              <ul>
+            <article key={bundle.audience} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-lg flex flex-col gap-3">
+              <h3 className="text-xl font-semibold text-sky-500">{bundle.audience}</h3>
+              <p className="text-base leading-relaxed text-gray-700">{bundle.title}</p>
+              <ul className="list-disc pl-5 flex flex-col gap-1 text-base leading-relaxed text-gray-700">
                 {bundle.points.map((point) => (
                   <li key={point}>{point}</li>
                 ))}
@@ -171,10 +176,10 @@ export default function ProductBizcarePage() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.highlightCard}>
-          <h3>임직원 참여를 이끄는 맞춤형 프로그램</h3>
-          <p>
+      <section className="flex flex-col gap-6">
+        <div className="rounded-3xl bg-sky-100/30 border border-sky-300/70 p-7 flex flex-col gap-4">
+          <h3 className="text-2xl font-semibold text-gray-900">임직원 참여를 이끄는 맞춤형 프로그램</h3>
+          <p className="text-base leading-relaxed text-gray-700">
             생체나이 개선 목표를 명확히 제시하고, 건강등수 관리와 개선도 피드백을
             제공하여 임직원이 자연스럽게 프로그램에 참여하도록 설계되어 있습니다.
             1년 단위로 변화를 추적해 건강경영의 성과를 수치로 확인할 수 있습니다.
@@ -182,13 +187,15 @@ export default function ProductBizcarePage() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>기대 효과</h2>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-3xl font-bold text-gray-900">기대 효과</h2>
         </header>
-        <ul className={styles.tagList}>
+        <ul className="flex flex-wrap gap-3 list-none m-0 p-0">
           {VALUE_TAGS.map((tag) => (
-            <li key={tag}>{tag}</li>
+            <li key={tag} className="px-4 py-2 rounded-full bg-sky-100 text-sky-700 font-medium text-base">
+              {tag}
+            </li>
           ))}
         </ul>
       </section>

@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import styles from "../policy.module.css";
 
 const SECTIONS = [
   {
@@ -39,28 +38,28 @@ export default function PrivacyPage() {
   return (
     <>
       <Header />
-      <main className={styles.wrapper}>
-        <section className={styles.intro}>
-          <h1>개인정보 처리방침</h1>
-          <p>
+      <main className="mx-auto w-full max-w-screen-lg px-6 py-24 flex flex-col gap-12 md:px-4 md:py-20 text-gray-900">
+        <section className="flex flex-col gap-4">
+          <h1 className="text-4xl font-bold">개인정보 처리방침</h1>
+          <p className="text-base leading-relaxed text-gray-700">
             DANAA는 이용자의 개인정보를 소중하게 생각하며 관련 법령을 준수합니다.
             아래 방침을 통해 수집하는 정보와 이용 목적, 보유 기간 등을 안내드립니다.
           </p>
         </section>
         {SECTIONS.map((section) => (
-          <section key={section.title} className={styles.section}>
-            <h2>{section.title}</h2>
-            <ul>
+          <section key={section.title} className="flex flex-col gap-3">
+            <h2 className="text-2xl font-semibold">{section.title}</h2>
+            <ul className="list-disc pl-5 flex flex-col gap-2 text-base leading-relaxed text-gray-700">
               {section.contents.map((content) => (
                 <li key={content}>{content}</li>
               ))}
             </ul>
           </section>
         ))}
-        <section className={styles.section}>
-          <h2>문의처</h2>
-          <p>
-            개인정보 보호와 관련된 문의는 <strong>contact@danaa.co.kr</strong> 또는
+        <section className="flex flex-col gap-3">
+          <h2 className="text-2xl font-semibold">문의처</h2>
+          <p className="text-base leading-relaxed text-gray-700">
+            개인정보 보호와 관련된 문의는 <strong className="text-gray-900">contact@danaa.co.kr</strong> 또는
             고객센터(02-550-8967)로 연락 주시면 성실히 답변드리겠습니다.
           </p>
         </section>

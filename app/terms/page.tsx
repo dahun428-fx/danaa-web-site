@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import styles from "../policy.module.css";
 
 const CLAUSES = [
   {
@@ -42,20 +41,20 @@ export default function TermsPage() {
   return (
     <>
       <Header />
-      <main className={styles.wrapper}>
-        <section className={styles.intro}>
-          <h1>이용약관</h1>
-          <p>
+      <main className="mx-auto w-full max-w-screen-lg px-6 py-24 flex flex-col gap-12 md:px-4 md:py-20 text-gray-900">
+        <section className="flex flex-col gap-4">
+          <h1 className="text-4xl font-bold">이용약관</h1>
+          <p className="text-base leading-relaxed text-gray-700">
             DANAA 서비스를 이용해 주셔서 감사합니다. 아래 약관은 서비스 이용과 관련한 기본
             규칙과 이용자의 권리 및 의무를 설명합니다.
           </p>
         </section>
         {CLAUSES.map((clause) => (
-          <section key={clause.title} className={styles.section}>
-            <h2>{clause.title}</h2>
-            {clause.description ? <p>{clause.description}</p> : null}
+          <section key={clause.title} className="flex flex-col gap-3">
+            <h2 className="text-2xl font-semibold">{clause.title}</h2>
+            {clause.description ? <p className="text-base leading-relaxed text-gray-700">{clause.description}</p> : null}
             {clause.list ? (
-              <ul>
+              <ul className="list-disc pl-5 flex flex-col gap-2 text-base leading-relaxed text-gray-700">
                 {clause.list.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -63,9 +62,9 @@ export default function TermsPage() {
             ) : null}
           </section>
         ))}
-        <section className={styles.section}>
-          <h2>부칙</h2>
-          <p>본 약관은 2025년 1월 1일부터 적용됩니다.</p>
+        <section className="flex flex-col gap-3">
+          <h2 className="text-2xl font-semibold">부칙</h2>
+          <p className="text-base leading-relaxed text-gray-700">본 약관은 2025년 1월 1일부터 적용됩니다.</p>
         </section>
       </main>
       <Footer />
