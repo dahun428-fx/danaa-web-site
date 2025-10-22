@@ -1,5 +1,5 @@
+import clsx from "clsx";
 import Image from "next/image";
-import styles from "./page.module.css";
 
 type TimelineEvent = {
   month: string;
@@ -193,10 +193,12 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
 
 export default function ResearchHistoryPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>연구소 연혁</h1>
-        <p>
+    <main className="mx-auto flex w-full max-w-[1100px] flex-col gap-14 px-6 pb-24 pt-20">
+      <section className="flex flex-col gap-3">
+        <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold text-brand-navy">
+          연구소 연혁
+        </h1>
+        <p className="text-[1.05rem] leading-relaxed text-brand-navy/70">
           다나아데이터 연구소는 2003년 생체나이 측정시스템 개발을 시작으로
           지속적인 기술 고도화와 학술 연구를 통해 과학적인 웰에이징 솔루션을
           구축해 왔습니다.
@@ -206,17 +208,29 @@ export default function ResearchHistoryPage() {
       {TIMELINE_GROUPS.map((group) => (
         <section
           key={group.years.map((year) => year.year).join("-")}
-          className={styles.block}
-          data-reverse={group.image?.position === "left"}
+          className={clsx(
+            "grid gap-8",
+            group.image && "md:grid-cols-[minmax(0,1fr)_minmax(0,420px)]"
+          )}
         >
-          <div className={styles.timeline}>
+          <div className="flex flex-col gap-7">
             {group.years.map((year) => (
-              <article key={year.year} className={styles.year}>
-                <h2 className={styles.yearLabel}>{year.year}</h2>
-                <ul className={styles.events}>
+              <article
+                key={year.year}
+                className="grid gap-4 md:grid-cols-[120px_minmax(0,1fr)] md:items-start"
+              >
+                <h2 className="text-[1.6rem] font-bold text-brand-blue md:text-left">
+                  {year.year}
+                </h2>
+                <ul className="flex list-none flex-col gap-3 p-0">
                   {year.events.map((event) => (
-                    <li key={`${year.year}-${event.month}-${event.description}`} className={styles.event}>
-                      <strong>{event.month}</strong>
+                    <li
+                      key={`${year.year}-${event.month}-${event.description}`}
+                      className="flex gap-3 text-[0.98rem] leading-relaxed text-brand-navy/80"
+                    >
+                      <strong className="min-w-[3rem] font-semibold text-brand-navy">
+                        {event.month}
+                      </strong>
                       <span>{event.description}</span>
                     </li>
                   ))}
@@ -225,12 +239,20 @@ export default function ResearchHistoryPage() {
             ))}
           </div>
           {group.image ? (
-            <div className={styles.imageWrap}>
+            <div
+              className={clsx(
+                "overflow-hidden rounded-[28px] shadow-[0_30px_60px_rgba(15,23,42,0.15)]",
+                group.image.position === "left"
+                  ? "md:order-first"
+                  : "md:order-last"
+              )}
+            >
               <Image
                 src={group.image.src}
                 alt={group.image.alt}
                 width={640}
                 height={760}
+                className="h-auto w-full"
               />
             </div>
           ) : null}

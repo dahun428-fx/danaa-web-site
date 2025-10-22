@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./ServiceLinksSection.module.css";
 
 const SERVICES = [
   {
@@ -26,35 +25,42 @@ const SERVICES = [
 
 export function ServiceLinksSection() {
   return (
-    <section className={styles.section} id="partners">
+    <section id="partners">
       <div className="container">
-        <div className={styles.inner}>
-          <header className={styles.header}>
-            <p>건강한 삶을 위한 파트너십</p>
-            <h2>건강관리 연계 서비스</h2>
-            <span>
+        <div className="rounded-[32px] bg-white px-6 py-12 shadow-[0_40px_80px_rgba(15,23,42,0.08)] sm:px-10 lg:px-14">
+          <header className="mb-10 flex flex-col items-start gap-3">
+            <p className="text-[0.85rem] uppercase tracking-[0.2em] text-brand-navy/65">
+              건강한 삶을 위한 파트너십
+            </p>
+            <h2 className="text-[1.9rem] font-bold text-brand-navy sm:text-[2.2rem]">
+              건강관리 연계 서비스
+            </h2>
+            <span className="max-w-xl text-base leading-relaxed text-brand-navy/60">
               DANAA의 생체나이 분석과 연계된 다양한 헬스케어 서비스를
               소개합니다.
             </span>
           </header>
-          <div className={styles.grid}>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             {SERVICES.map((service) => (
               <a
                 key={service.name}
                 href={service.href}
                 target="_blank"
                 rel="noreferrer"
-                className={styles.card}
+                className="group flex flex-col items-center gap-4 rounded-[24px] border border-brand-navy/10 px-4 py-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_36px_rgba(37,99,235,0.18)]"
               >
-                <div className={styles.logoWrapper}>
+                <div className="grid h-24 w-24 place-items-center rounded-[26px] bg-[radial-gradient(circle,rgba(37,99,235,0.08)_0%,rgba(37,99,235,0)_70%)]">
                   <Image
                     src={service.image}
                     alt={service.name}
                     width={72}
                     height={72}
+                    className="h-auto w-[70px]"
                   />
                 </div>
-                <h3>{service.name}</h3>
+                <h3 className="text-[1.05rem] font-semibold text-brand-navy">
+                  {service.name}
+                </h3>
               </a>
             ))}
           </div>

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./page.module.css";
 
 const LITERATURE_LINKS = [
   { name: "보건연구정보센터", url: "http://www.richis.org" },
@@ -39,22 +38,36 @@ function LinkTable({
   links: readonly { name: string; url: string }[];
 }) {
   return (
-    <section className={styles.section}>
-      <h2>{title}</h2>
-      <div className={styles.tableWrap}>
-        <table className={styles.table}>
+    <section className="flex flex-col gap-5">
+      <h2 className="text-[1.6rem] font-semibold text-brand-navy">{title}</h2>
+      <div className="overflow-hidden rounded-[20px] border border-brand-navy/10 bg-white shadow-[0_20px_36px_rgba(15,23,42,0.08)]">
+        <table className="w-full border-collapse">
           <thead>
             <tr>
-              <th scope="col">사이트명</th>
-              <th scope="col">URL</th>
+              <th className="border-b border-brand-navy/10 bg-brand-navy/5 px-5 py-4 text-left text-[0.98rem] font-semibold text-brand-navy">
+                사이트명
+              </th>
+              <th className="border-b border-brand-navy/10 bg-brand-navy/5 px-5 py-4 text-left text-[0.98rem] font-semibold text-brand-navy">
+                URL
+              </th>
             </tr>
           </thead>
           <tbody>
             {links.map((item) => (
               <tr key={item.url}>
-                <th scope="row">{item.name}</th>
-                <td>
-                  <Link href={item.url} className={styles.link} target="_blank" rel="noreferrer">
+                <th
+                  scope="row"
+                  className="border-b border-brand-navy/10 px-5 py-4 text-left text-[0.98rem] font-semibold text-brand-navy"
+                >
+                  {item.name}
+                </th>
+                <td className="border-b border-brand-navy/10 px-5 py-4 text-[0.98rem] text-brand-navy/75">
+                  <Link
+                    href={item.url}
+                    className="font-medium text-brand-blue hover:underline"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {item.url}
                   </Link>
                 </td>
@@ -69,10 +82,12 @@ function LinkTable({
 
 export default function ResearchLinksPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>관련 사이트</h1>
-        <p>
+    <main className="mx-auto flex w-full max-w-[960px] flex-col gap-12 px-6 pb-24 pt-20">
+      <section className="flex flex-col gap-3">
+        <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold text-brand-navy">
+          관련 사이트
+        </h1>
+        <p className="text-[1.05rem] leading-relaxed text-brand-navy/70">
           노화 및 웰에이징 연구와 관련된 국내외 문헌 검색 서비스와 학회/단체
           정보를 모았습니다. 추가로 공유하고 싶은 자료가 있으면 언제든지 제안해
           주세요.

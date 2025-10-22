@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 type OrgUnit = {
   name: string;
@@ -41,36 +40,48 @@ const ORGANIZATION: OrgUnit[] = [
 
 export default function CompanyOrganizationPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>조직/인력</h1>
-        <p>
+    <main className="mx-auto flex w-full max-w-[1100px] flex-col gap-14 px-6 pb-24 pt-20">
+      <section className="flex flex-col gap-3">
+        <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold text-brand-navy">
+          조직/인력
+        </h1>
+        <p className="text-[1.05rem] leading-relaxed text-brand-navy/70">
           대표이사를 중심으로 전략, 개발, 마케팅, 영업, 경영, 연구 조직이 긴밀하게
           협업하여 생체나이 기반 헬스케어 서비스를 제공합니다.
         </p>
       </section>
-      <section className={styles.hero}>
-        <div className={styles.heroImage}>
+      <section>
+        <div className="overflow-hidden rounded-[28px] shadow-[0_28px_56px_rgba(15,23,42,0.12)]">
           <Image
             src="/resources/images/sub/sub_0104_img_01.jpg"
             alt="다나아데이터 조직도"
             width={960}
             height={600}
+            className="h-auto w-full"
             priority
           />
         </div>
       </section>
-      <section className={styles.structure}>
-        <h2>주요 조직 구성</h2>
-        <ul className={styles.structureList}>
+      <section className="flex flex-col gap-6">
+        <h2 className="text-[1.4rem] font-semibold text-brand-navy">
+          주요 조직 구성
+        </h2>
+        <ul className="grid gap-7 md:grid-cols-2">
           {ORGANIZATION.map((unit) => (
-            <li key={unit.name} className={styles.node}>
-              <div className={styles.nodeTitle}>
+            <li
+              key={unit.name}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-7 py-7 shadow-[0_20px_40px_rgba(15,23,42,0.08)]"
+            >
+              <div className="text-[1.15rem] font-semibold text-brand-blue">
                 {unit.name}
-                {unit.description ? <span>{unit.description}</span> : null}
+                {unit.description ? (
+                  <span className="mt-1 block text-[0.9rem] font-normal text-brand-navy/60">
+                    {unit.description}
+                  </span>
+                ) : null}
               </div>
               {unit.teams ? (
-                <ul className={styles.nodeChildren}>
+                <ul className="flex list-disc flex-col gap-2 pl-5 text-[0.98rem] leading-relaxed text-brand-navy/75">
                   {unit.teams.map((team) => (
                     <li key={team}>{team}</li>
                   ))}

@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import styles from "../policy.module.css";
 
 const CLAUSES = [
   {
@@ -39,23 +38,34 @@ const CLAUSES = [
 ];
 
 export default function TermsPage() {
+  const wrapperClass =
+    "mx-auto flex w-full max-w-[840px] flex-col gap-12 px-6 pb-20 pt-24 text-brand-navy";
+  const introClass = "flex flex-col gap-4";
+  const sectionClass = "flex flex-col gap-3";
+  const listClass =
+    "flex list-disc flex-col gap-2 pl-6 text-[0.98rem] leading-relaxed text-brand-navy/75";
+
   return (
     <>
       <Header />
-      <main className={styles.wrapper}>
-        <section className={styles.intro}>
-          <h1>이용약관</h1>
-          <p>
+      <main className={wrapperClass}>
+        <section className={introClass}>
+          <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold">이용약관</h1>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
             DANAA 서비스를 이용해 주셔서 감사합니다. 아래 약관은 서비스 이용과 관련한 기본
             규칙과 이용자의 권리 및 의무를 설명합니다.
           </p>
         </section>
         {CLAUSES.map((clause) => (
-          <section key={clause.title} className={styles.section}>
-            <h2>{clause.title}</h2>
-            {clause.description ? <p>{clause.description}</p> : null}
+          <section key={clause.title} className={sectionClass}>
+            <h2 className="text-[1.35rem] font-semibold">{clause.title}</h2>
+            {clause.description ? (
+              <p className="text-[0.98rem] leading-relaxed text-brand-navy/75">
+                {clause.description}
+              </p>
+            ) : null}
             {clause.list ? (
-              <ul>
+              <ul className={listClass}>
                 {clause.list.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -63,9 +73,11 @@ export default function TermsPage() {
             ) : null}
           </section>
         ))}
-        <section className={styles.section}>
-          <h2>부칙</h2>
-          <p>본 약관은 2025년 1월 1일부터 적용됩니다.</p>
+        <section className={sectionClass}>
+          <h2 className="text-[1.35rem] font-semibold">부칙</h2>
+          <p className="text-[0.98rem] leading-relaxed text-brand-navy/75">
+            본 약관은 2025년 1월 1일부터 적용됩니다.
+          </p>
         </section>
       </main>
       <Footer />

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 const BENEFITS = [
   {
@@ -91,45 +90,53 @@ const CERTIFICATIONS = [
 
 export default function ProductBioAgePage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <h1>생체나이 측정 시스템</h1>
-          <p className={styles.caption}>
+    <main className="mx-auto flex w-full max-w-[1100px] flex-col gap-16 px-6 pb-24 pt-20">
+      <section className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,420px)]">
+        <div className="flex flex-col gap-5">
+          <h1 className="text-[clamp(2rem,3.5vw,3rem)] font-bold leading-tight text-brand-navy">
+            생체나이 측정 시스템
+          </h1>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
             세계 최초로 40만 건 이상의 임상 데이터를 기반으로 개발된
             다나아데이터 생체나이 측정 시스템은 설문이 아닌 실제 검진 데이터를
             분석하여 개인의 건강상태와 노화 정도를 정밀하게 진단합니다.
           </p>
-          <p className={styles.caption}>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
             객관적인 데이터를 바탕으로 노화 속도와 위험요인을 파악하고
             맞춤형 건강관리 전략을 제시하여 의료기관, 기업, 지자체에서 폭넓게
             활용되고 있습니다.
           </p>
         </div>
-        <div className={styles.heroImage}>
+        <div className="overflow-hidden rounded-[28px] shadow-[0_28px_58px_rgba(15,23,42,0.12)]">
           <Image
             src="/resources/images/sub/sub_0201_img_01.jpg"
             alt="생체나이 측정 시스템 설명"
             width={640}
             height={480}
+            className="h-auto w-full"
             priority
           />
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>핵심 가치</h2>
-          <p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">핵심 가치</h2>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
             생체나이 측정 시스템은 단순한 검진을 넘어 과학적인 건강관리
             경험을 제공합니다.
           </p>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {BENEFITS.map((benefit) => (
-            <article key={benefit.title} className={styles.card}>
-              <h3>{benefit.title}</h3>
-              <ul>
+            <article
+              key={benefit.title}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-7 py-7 shadow-[0_22px_44px_rgba(15,23,42,0.08)]"
+            >
+              <h3 className="text-[1.2rem] font-semibold text-brand-blue">
+                {benefit.title}
+              </h3>
+              <ul className="flex list-disc flex-col gap-2 pl-5 text-[0.98rem] leading-relaxed text-brand-navy/80">
                 {benefit.points.map((point) => (
                   <li key={point}>{point}</li>
                 ))}
@@ -139,57 +146,87 @@ export default function ProductBioAgePage() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>측정 프로세스</h2>
-          <p>데이터 수집부터 맞춤 케어까지 일관된 프로세스로 운영됩니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">측정 프로세스</h2>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
+            데이터 수집부터 맞춤 케어까지 일관된 프로세스로 운영됩니다.
+          </p>
         </header>
-        <div className={styles.stepGrid}>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {MEASUREMENT_STEPS.map((step, index) => (
-            <article key={step.title} className={styles.step}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
+            <article
+              key={step.title}
+              className="flex flex-col gap-3 rounded-[20px] bg-brand-navy px-7 py-7 text-white shadow-[0_24px_48px_rgba(15,23,42,0.25)]"
+            >
+              <span className="text-xs uppercase tracking-[0.2em] text-white/70">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-[1.25rem] font-semibold">{step.title}</h3>
+              <p className="text-[0.98rem] leading-relaxed text-white/80">
+                {step.description}
+              </p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>리포트 특징</h2>
-          <p>다양한 분석 항목을 통해 개인별 맞춤 건강전략을 제안합니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">리포트 특징</h2>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
+            다양한 분석 항목을 통해 개인별 맞춤 건강전략을 제안합니다.
+          </p>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {REPORT_FEATURES.map((feature) => (
-            <article key={feature.title} className={styles.card}>
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
+            <article
+              key={feature.title}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-6 py-7 shadow-[0_22px_44px_rgba(15,23,42,0.08)]"
+            >
+              <h3 className="text-[1.2rem] font-semibold text-brand-blue">
+                {feature.title}
+              </h3>
+              <p className="text-[0.98rem] leading-relaxed text-brand-navy/80">
+                {feature.description}
+              </p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>주요 활용 분야</h2>
-          <p>다양한 산업 영역과 연계해 새로운 헬스케어 가치를 창출합니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">주요 활용 분야</h2>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
+            다양한 산업 영역과 연계해 새로운 헬스케어 가치를 창출합니다.
+          </p>
         </header>
-        <ul className={styles.listPlain}>
+        <ul className="flex flex-wrap gap-3">
           {INDUSTRY_USE_CASES.map((item) => (
-            <li key={item}>{item}</li>
+            <li
+              key={item}
+              className="rounded-full bg-brand-blue/15 px-4 py-2 text-[0.95rem] font-medium text-brand-blue"
+            >
+              {item}
+            </li>
           ))}
         </ul>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>과학적 검증</h2>
-          <p>신뢰할 수 있는 기술력을 토대로 지속적인 연구개발을 이어가고 있습니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">과학적 검증</h2>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
+            신뢰할 수 있는 기술력을 토대로 지속적인 연구개발을 이어가고 있습니다.
+          </p>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {CERTIFICATIONS.map((item) => (
-            <article key={item} className={styles.card}>
+            <article
+              key={item}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-6 py-7 text-[0.98rem] leading-relaxed text-brand-navy/80 shadow-[0_22px_44px_rgba(15,23,42,0.08)]"
+            >
               <p>{item}</p>
             </article>
           ))}

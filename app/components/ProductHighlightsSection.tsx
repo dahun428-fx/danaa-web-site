@@ -1,5 +1,3 @@
-import styles from "./ProductHighlightsSection.module.css";
-
 type Highlight = {
   title: string;
   description: string;
@@ -47,27 +45,39 @@ const HIGHLIGHTS: Highlight[] = [
 
 export function ProductHighlightsSection() {
   return (
-    <section className={styles.section} id="solutions">
+    <section
+      className='bg-[radial-gradient(circle_at_top_right,rgba(79,70,229,0.08),transparent_55%),radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.1),transparent_45%)]'
+      id="solutions"
+    >
       <div className="container">
-        <header className={styles.header}>
-          <p>헬스케어 상품 라인업</p>
-          <h2>개인별 맞춤 솔루션</h2>
+        <header className="mb-12 text-center">
+          <p className="mb-3 text-[0.9rem] uppercase tracking-[0.15em] text-brand-navy/60">
+            헬스케어 상품 라인업
+          </p>
+          <h2 className="text-3xl font-bold text-brand-navy sm:text-[2.5rem]">
+            개인별 맞춤 솔루션
+          </h2>
         </header>
-        <div className={styles.grid}>
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {HIGHLIGHTS.map((item) => (
-            <article key={item.title} className={styles.card}>
+            <article
+              key={item.title}
+              className="group relative min-h-[280px] overflow-hidden rounded-[28px] shadow-[0_30px_60px_rgba(15,23,42,0.12)]"
+            >
               <div
-                className={styles.media}
+                className="absolute inset-0 scale-[1.05] bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style={{ backgroundImage: `url(${item.image})` }}
                 role="presentation"
               />
-              <div className={styles.overlay}>
+              <div className="absolute inset-0 flex flex-col justify-end gap-5 bg-[linear-gradient(180deg,rgba(15,23,42,0.05)_0%,rgba(15,23,42,0.85)_80%)] px-8 py-10 text-white sm:px-10">
                 <span
-                  className={styles.badge}
+                  className="inline-flex h-1 w-12 rounded-full"
                   style={{ backgroundImage: item.accent }}
                 />
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <h3 className="text-[1.8rem] font-bold">{item.title}</h3>
+                <p className="text-base leading-relaxed text-white/80">
+                  {item.description}
+                </p>
               </div>
             </article>
           ))}

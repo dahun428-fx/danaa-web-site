@@ -1,5 +1,5 @@
+import clsx from "clsx";
 import Image from "next/image";
-import styles from "./page.module.css";
 
 type TimelineEvent = {
   month: string;
@@ -192,10 +192,12 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
 
 export default function CompanyHistoryPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>연혁</h1>
-        <p>
+    <main className="mx-auto flex w-full max-w-[1100px] flex-col gap-16 px-6 pb-24 pt-20">
+      <section className="flex flex-col gap-4">
+        <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold text-brand-navy">
+          연혁
+        </h1>
+        <p className="text-[1.05rem] leading-relaxed text-brand-navy/70">
           DANAA는 2002년 창립 이후 생체나이 측정 기술과 헬스케어 서비스를
           고도화하며 국내외 의료 시장에서 신뢰받는 파트너로 성장해 왔습니다.
         </p>
@@ -204,18 +206,29 @@ export default function CompanyHistoryPage() {
       {TIMELINE_GROUPS.map((group) => (
         <section
           key={group.years.map((y) => y.year).join("-")}
-          className={styles.group}
-          data-has-image={Boolean(group.image)}
-          data-position={group.image?.position ?? "right"}
+          className={clsx(
+            "grid gap-8",
+            group.image && "md:grid-cols-[minmax(0,1fr)_minmax(0,420px)]"
+          )}
         >
-          <div className={styles.timeline}>
+          <div className="flex flex-col gap-8">
             {group.years.map((year) => (
-              <article key={year.year} className={styles.year}>
-                <h2 className={styles.yearHeading}>{year.year}</h2>
-                <ul className={styles.events}>
+              <article
+                key={year.year}
+                className="grid gap-4 md:grid-cols-[110px_minmax(0,1fr)] md:items-start"
+              >
+                <h2 className="text-[1.6rem] font-bold text-slate-800 md:text-left">
+                  {year.year}
+                </h2>
+                <ul className="flex list-none flex-col gap-3 p-0">
                   {year.events.map((event) => (
-                    <li key={`${year.year}-${event.month}-${event.description}`} className={styles.event}>
-                      <strong>{event.month}</strong>
+                    <li
+                      key={`${year.year}-${event.month}-${event.description}`}
+                      className="flex gap-2 text-[0.98rem] leading-relaxed text-brand-navy/80"
+                    >
+                      <strong className="min-w-[2.5rem] font-semibold text-brand-blue">
+                        {event.month}
+                      </strong>
                       <span>{event.description}</span>
                     </li>
                   ))}
@@ -224,12 +237,20 @@ export default function CompanyHistoryPage() {
             ))}
           </div>
           {group.image ? (
-            <div className={styles.imageWrap}>
+            <div
+              className={clsx(
+                "overflow-hidden rounded-[28px] shadow-[0_30px_60px_rgba(15,23,42,0.14)]",
+                group.image.position === "left"
+                  ? "md:order-first"
+                  : "md:order-last"
+              )}
+            >
               <Image
                 src={group.image.src}
                 alt={group.image.alt}
                 width={640}
                 height={760}
+                className="h-auto w-full"
               />
             </div>
           ) : null}

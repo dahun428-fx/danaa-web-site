@@ -1,10 +1,10 @@
 "use client";
 
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import styles from "./Header.module.css";
 
 type NavItem = {
   label: string;
@@ -92,26 +92,36 @@ export function Header() {
   };
 
   return (
-    <header className={styles.wrapper} onMouseEnter={handleMegaMenuEnter} onMouseLeave={handleMegaMenuLeave}>
-      <div className={styles.container}>
-        <Link href="/" className={styles.logo} onClick={handleNavigate}>
+    <header
+      className="sticky top-0 z-[100] border-b border-slate-900/10 bg-white/90 backdrop-blur-[14px] backdrop-saturate-[1.8]"
+      onMouseEnter={handleMegaMenuEnter}
+      onMouseLeave={handleMegaMenuLeave}
+    >
+      <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between gap-4 px-6 py-4">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-[1.1rem] font-semibold text-brand-navy"
+          onClick={handleNavigate}
+        >
           <Image
             src="/resources/images/logo_on.png"
             alt="DANAA BIO-AGE"
             width={152}
             height={32}
+            className="h-8 w-auto"
             priority
           />
         </Link>
-        <nav className={styles.nav}>
-          <ul>
+        <nav className="hidden md:block">
+          <ul className="flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className={`${styles.link} ${
-                    isActive(item) ? styles.active : ""
-                  }`}
+                  className={clsx(
+                    "inline-flex items-center gap-1 text-[0.95rem] font-medium text-brand-navy transition-colors duration-300 ease-out hover:text-brand-blue",
+                    isActive(item) && "font-semibold text-brand-blue"
+                  )}
                   onClick={handleNavigate}
                 >
                   {item.label}
@@ -122,38 +132,39 @@ export function Header() {
         </nav>
         <button
           type="button"
-          className={styles.mobileToggle}
+          className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-xl border border-slate-900/10 bg-transparent p-0 md:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           onClick={handleToggle}
         >
-          <span />
-          <span />
-          <span />
+          <span className="block h-0.5 w-5 rounded-full bg-brand-navy transition-transform duration-300" />
+          <span className="block h-0.5 w-5 rounded-full bg-brand-navy transition-transform duration-300" />
+          <span className="block h-0.5 w-5 rounded-full bg-brand-navy transition-transform duration-300" />
         </button>
       </div>
       {isMegaMenuOpen && (
-        <div className={styles.megaMenu}>
-          <div className={styles.megaMenuInner}>
+        <div className="absolute left-0 top-full hidden w-full border-t border-slate-900/10 bg-white shadow-[0_4px_12px_rgba(15,23,42,0.1)] md:block">
+          <div className="mx-auto grid w-full max-w-[1100px] gap-6 px-6 py-6 sm:grid-cols-2 lg:grid-cols-5">
             {navItems.map((item) => (
-              <div key={item.label} className={styles.megaMenuItem}>
+              <div key={item.label} className="flex flex-col gap-3">
                 <Link
                   href={item.href}
-                  className={`${styles.megaMenuMainLink} ${
-                    isActive(item) ? styles.active : ""
-                  }`}
+                  className={clsx(
+                    "border-b border-slate-900/10 pb-2 text-lg font-semibold text-brand-navy transition-colors hover:text-brand-blue",
+                    isActive(item) && "text-brand-blue"
+                  )}
                   onClick={handleNavigate}
                 >
                   {item.label}
                 </Link>
                 {item.subItems && (
-                  <ul className={styles.megaMenuSubList}>
+                  <ul className="flex flex-col gap-2 pt-2">
                     {item.subItems.map((subItem) => (
                       <li key={subItem.label}>
                         <Link
                           href={subItem.href}
-                          className={styles.megaMenuSubLink}
+                          className="text-sm text-brand-slate transition-colors hover:text-brand-blue"
                           onClick={handleNavigate}
                         >
                           {subItem.label}
@@ -169,16 +180,20 @@ export function Header() {
       )}
       <nav
         id="mobile-menu"
-        className={`${styles.mobileNav} ${open ? styles.mobileNavOpen : ""}`}
+        className={clsx(
+          "hidden border-t border-slate-900/10 bg-white/95 md:hidden",
+          open && "block"
+        )}
       >
-        <ul>
+        <ul className="flex flex-col gap-5 px-6 pb-8 pt-6">
           {navItems.map((item) => (
             <li key={item.label}>
               <Link
                 href={item.href}
-                className={`${styles.link} ${
-                  isActive(item) ? styles.active : ""
-                }`}
+                className={clsx(
+                  "inline-flex items-center gap-1 text-base font-medium text-brand-navy transition-colors duration-300 ease-out hover:text-brand-blue",
+                  isActive(item) && "font-semibold text-brand-blue"
+                )}
                 onClick={handleNavigate}
               >
                 {item.label}

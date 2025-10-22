@@ -1,6 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
-import clsx from "clsx";
 
 const SERVICE_LINES = [
   {
@@ -71,41 +69,50 @@ const COMPETENCIES = [
 
 export default function CompanyVisionPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.hero}>
-        <div className={styles.sectionHeader}>
-          <h1>사업영역 및 비즈니스 모델</h1>
-          <p>
+    <main className="mx-auto flex w-full max-w-[1100px] flex-col gap-16 px-6 pb-24 pt-20">
+      <section className="grid gap-10 md:grid-cols-1">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold text-brand-navy">
+            사업영역 및 비즈니스 모델
+          </h1>
+          <p className="text-[1.05rem] leading-relaxed text-brand-navy/70">
             DANAA는 생체나이 분석 기술을 중심으로 유전자, 통계, 기업 헬스케어
             영역을 아우르며 건강관리의 새로운 표준을 만들어가고 있습니다.
           </p>
         </div>
-        <div className={clsx(styles.heroImage, styles.heroImage2)}>
+        <div className="overflow-hidden rounded-[28px] bg-white p-4 shadow-[0_30px_60px_rgba(15,23,42,0.15)]">
           <Image
             src="/resources/images/sub/sub_0102_img_01.jpg"
             alt="DANAA 사업 영역 개요"
             width={1200}
             height={1000}
+            className="h-auto w-full"
             priority
           />
         </div>
       </section>
 
-      <section className={styles.cards}>
+      <section className="grid gap-6">
         {SERVICE_LINES.map((service) => (
-          <article key={service.title} className={styles.card}>
-            <div className={styles.cardIcon}>
+          <article
+            key={service.title}
+            className="grid gap-6 rounded-[24px] border border-brand-navy/10 bg-white px-6 py-7 shadow-[0_18px_35px_rgba(15,23,42,0.08)] sm:grid-cols-[auto_minmax(0,1fr)]"
+          >
+            <div className="grid h-18 w-18 place-items-center rounded-[22px] bg-brand-blue/10">
               <Image
                 src={service.icon}
                 alt=""
                 width={48}
                 height={48}
+                className="h-11 w-11 object-contain"
                 aria-hidden
               />
             </div>
-            <div className={styles.cardBody}>
-              <h2>{service.title}</h2>
-              <ul>
+            <div className="flex flex-col gap-3">
+              <h2 className="text-[1.3rem] font-semibold text-brand-navy">
+                {service.title}
+              </h2>
+              <ul className="flex list-disc flex-col gap-2 pl-6 text-[0.98rem] leading-relaxed text-brand-navy/75">
                 {service.details.map((detail) => (
                   <li key={detail}>{detail}</li>
                 ))}
@@ -115,30 +122,46 @@ export default function CompanyVisionPage() {
         ))}
       </section>
 
-      <section className={styles.tableSection}>
-        <div className={styles.sectionHeader}>
-          <h1>핵심역량</h1>
-          <p>
+      <section className="flex flex-col gap-6">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold text-brand-navy">
+            핵심역량
+          </h1>
+          <p className="text-[1.05rem] leading-relaxed text-brand-navy/70">
             축적된 임상 데이터와 IT 기술 역량을 바탕으로, 고객의 건강 수준을
             정밀하게 분석하고 실행 가능한 솔루션을 제공합니다.
           </p>
         </div>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
+        <div className="overflow-hidden rounded-[24px] border border-brand-navy/10 bg-white shadow-[0_24px_48px_rgba(15,23,42,0.08)]">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[640px] border-collapse">
             <thead>
               <tr>
-                <th scope="col">구분</th>
-                <th scope="col">대표 상품</th>
-                <th scope="col">특징</th>
+                <th className="w-[26%] border-b border-brand-navy/10 px-5 py-6 text-left text-[1rem] font-semibold text-brand-navy">
+                  구분
+                </th>
+                <th className="border-b border-brand-navy/10 px-5 py-6 text-left text-[1rem] font-semibold text-brand-navy">
+                  대표 상품
+                </th>
+                <th className="border-b border-brand-navy/10 px-5 py-6 text-left text-[1rem] font-semibold text-brand-navy">
+                  특징
+                </th>
               </tr>
             </thead>
             <tbody>
               {COMPETENCIES.map((item) => (
                 <tr key={item.category}>
-                  <th scope="row">{item.category}</th>
-                  <td>{item.product}</td>
-                  <td>
-                    <ul>
+                  <th
+                    scope="row"
+                    className="border-b border-brand-navy/10 px-5 py-6 text-left text-[0.98rem] font-semibold text-brand-navy"
+                  >
+                    {item.category}
+                  </th>
+                  <td className="border-b border-brand-navy/10 px-5 py-6 text-[0.98rem] text-brand-navy/75">
+                    {item.product}
+                  </td>
+                  <td className="border-b border-brand-navy/10 px-5 py-6 text-[0.98rem] text-brand-navy/75">
+                    <ul className="flex list-disc flex-col gap-2 pl-5">
                       {item.points.map((point) => (
                         <li key={point}>{point}</li>
                       ))}
@@ -148,6 +171,7 @@ export default function CompanyVisionPage() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       </section>
     </main>

@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import styles from "../policy.module.css";
 
 const SECTIONS = [
   {
@@ -36,31 +35,41 @@ const SECTIONS = [
 ];
 
 export default function PrivacyPage() {
+  const wrapperClass =
+    "mx-auto flex w-full max-w-[840px] flex-col gap-12 px-6 pb-20 pt-24 text-brand-navy";
+  const introClass = "flex flex-col gap-4";
+  const sectionClass = "flex flex-col gap-3";
+  const listClass =
+    "flex list-disc flex-col gap-2 pl-6 text-[0.98rem] leading-relaxed text-brand-navy/75";
+
   return (
     <>
       <Header />
-      <main className={styles.wrapper}>
-        <section className={styles.intro}>
-          <h1>개인정보 처리방침</h1>
-          <p>
+      <main className={wrapperClass}>
+        <section className={introClass}>
+          <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold">
+            개인정보 처리방침
+          </h1>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
             DANAA는 이용자의 개인정보를 소중하게 생각하며 관련 법령을 준수합니다.
             아래 방침을 통해 수집하는 정보와 이용 목적, 보유 기간 등을 안내드립니다.
           </p>
         </section>
         {SECTIONS.map((section) => (
-          <section key={section.title} className={styles.section}>
-            <h2>{section.title}</h2>
-            <ul>
+          <section key={section.title} className={sectionClass}>
+            <h2 className="text-[1.35rem] font-semibold">{section.title}</h2>
+            <ul className={listClass}>
               {section.contents.map((content) => (
                 <li key={content}>{content}</li>
               ))}
             </ul>
           </section>
         ))}
-        <section className={styles.section}>
-          <h2>문의처</h2>
-          <p>
-            개인정보 보호와 관련된 문의는 <strong>contact@danaa.co.kr</strong> 또는
+        <section className={sectionClass}>
+          <h2 className="text-[1.35rem] font-semibold">문의처</h2>
+          <p className="text-[0.98rem] leading-relaxed text-brand-navy/75">
+            개인정보 보호와 관련된 문의는{" "}
+            <strong className="text-blue-900">contact@danaa.co.kr</strong> 또는
             고객센터(02-550-8967)로 연락 주시면 성실히 답변드리겠습니다.
           </p>
         </section>

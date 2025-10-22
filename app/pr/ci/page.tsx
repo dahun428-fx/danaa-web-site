@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 const CI_SECTIONS = [
   {
@@ -42,10 +41,12 @@ const CI_SECTIONS = [
 
 export default function PrCiPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>CI 매뉴얼</h1>
-        <p>
+    <main className="mx-auto flex w-full max-w-[1100px] flex-col gap-12 px-6 pb-24 pt-20">
+      <section className="flex flex-col gap-3">
+        <h1 className="text-[clamp(2rem,3vw,2.6rem)] font-bold text-brand-navy">
+          CI 매뉴얼
+        </h1>
+        <p className="text-[1.05rem] leading-relaxed text-brand-navy/70">
           다나아데이터의 시각 정체성을 올바르게 활용하기 위한 기본 가이드입니다.
           워드마크, 로고타입, 전용 색상, 사용 금지 규정을 확인하고 브랜드
           일관성을 유지해 주세요.
@@ -53,21 +54,26 @@ export default function PrCiPage() {
       </section>
 
       {CI_SECTIONS.map((section) => (
-        <section key={section.title} className={styles.section}>
-          <h2>{section.title}</h2>
-          <div className={styles.imageWrap}>
+        <section key={section.title} className="grid gap-6">
+          <h2 className="text-[1.6rem] font-semibold text-brand-navy">
+            {section.title}
+          </h2>
+          <div className="overflow-hidden rounded-[28px] shadow-[0_28px_56px_rgba(15,23,42,0.12)]">
             <Image
               src={section.image}
               alt={section.title}
               width={960}
               height={640}
+              className="h-auto w-full"
             />
           </div>
-          <p className={styles.description}>{section.description}</p>
+          <p className="text-[0.98rem] leading-relaxed text-brand-navy/75">
+            {section.description}
+          </p>
         </section>
       ))}
 
-      <section className={styles.guide}>
+      <section className="rounded-[20px] border border-[#7c3aed]/20 bg-[linear-gradient(135deg,rgba(124,58,237,0.12),rgba(124,58,237,0.05))] px-7 py-7 text-[0.98rem] leading-relaxed text-brand-navy/75">
         사용 시 의문 사항이 있다면{" "}
         <strong>contact@danaa.co.kr</strong> 또는 <strong>02-550-8967</strong>로
         연락 주세요. 정확한 원본 파일이 필요하시면 담당자에게 요청해 드립니다.

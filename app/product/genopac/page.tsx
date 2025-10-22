@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 const SERVICE_ELEMENTS = [
   {
@@ -91,56 +90,73 @@ const SERVICE_TAGS = [
 
 export default function ProductGenopacPage() {
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <h1>GenoPAC 유전자 분석 서비스</h1>
-          <p>
+    <main className="mx-auto flex w-full max-w-[1100px] flex-col gap-16 px-6 pb-24 pt-20">
+      <section className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,400px)]">
+        <div className="flex flex-col gap-5">
+          <h1 className="text-[clamp(2rem,3.3vw,2.9rem)] font-bold leading-tight text-brand-navy">
+            GenoPAC 유전자 분석 서비스
+          </h1>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
             GenoPAC은 개인의 고유 유전정보를 분석해 선천적 질병 위험도를 예측하고,
             맞춤형 건강관리 전략을 제안하는 프리미엄 헬스케어 솔루션입니다.
           </p>
-          <p>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
             전체 유전자의 0.1% 차이에 주목하여 암·만성질환을 포함한 다양한 건강
             위험 요인을 진단하고, 식이·운동·생활습관 개선을 위한 실행 가이드까지
             제공합니다.
           </p>
         </div>
-        <div className={styles.heroImage}>
+        <div className="overflow-hidden rounded-[28px] shadow-[0_28px_56px_rgba(15,23,42,0.12)]">
           <Image
             src="/resources/images/sub/sub_0203_img_01.jpg"
             alt="GenoPAC 유전자 분석 서비스"
             width={640}
             height={480}
+            className="h-auto w-full"
             priority
           />
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>제공 서비스</h2>
-          <p>맞춤 의학을 위한 핵심 유전자 분석 정보를 제공합니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">제공 서비스</h2>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
+            맞춤 의학을 위한 핵심 유전자 분석 정보를 제공합니다.
+          </p>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {SERVICE_ELEMENTS.map((item) => (
-            <article key={item.title} className={styles.card}>
-              <h3>{item.title}</h3>
+            <article
+              key={item.title}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-7 py-7 text-[0.98rem] leading-relaxed text-brand-navy/80 shadow-[0_20px_40px_rgba(15,23,42,0.08)]"
+            >
+              <h3 className="text-[1.2rem] font-semibold text-[#7c3aed]">
+                {item.title}
+              </h3>
               <p>{item.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
-        <header>
-          <h2>분석 카테고리</h2>
-          <p>관심 영역에 따라 다양한 맞춤 패키지를 구성할 수 있습니다.</p>
+      <section className="flex flex-col gap-6">
+        <header className="flex flex-col gap-2">
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">분석 카테고리</h2>
+          <p className="text-[1rem] leading-relaxed text-brand-navy/70">
+            관심 영역에 따라 다양한 맞춤 패키지를 구성할 수 있습니다.
+          </p>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid gap-6 sm:grid-cols-2">
           {ANALYSIS_PACKAGES.map((pack) => (
-            <article key={pack.title} className={styles.card}>
-              <h3>{pack.title}</h3>
-              <ul>
+            <article
+              key={pack.title}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-7 py-7 shadow-[0_20px_40px_rgba(15,23,42,0.08)]"
+            >
+              <h3 className="text-[1.2rem] font-semibold text-[#7c3aed]">
+                {pack.title}
+              </h3>
+              <ul className="flex list-disc flex-col gap-2 pl-5 text-[0.98rem] leading-relaxed text-brand-navy/80">
                 {pack.items.map((value) => (
                   <li key={value}>{value}</li>
                 ))}
@@ -150,67 +166,87 @@ export default function ProductGenopacPage() {
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className="flex flex-col gap-6">
         <header>
-          <h2>선택형 맞춤 관리</h2>
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">선택형 맞춤 관리</h2>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid gap-6 sm:grid-cols-2">
           {CUSTOM_OPTIONS.map((option) => (
-            <article key={option.title} className={styles.card}>
-              <h3>{option.title}</h3>
+            <article
+              key={option.title}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-6 py-7 text-[0.98rem] leading-relaxed text-brand-navy/80 shadow-[0_20px_40px_rgba(15,23,42,0.08)]"
+            >
+              <h3 className="text-[1.2rem] font-semibold text-[#7c3aed]">
+                {option.title}
+              </h3>
               <p>{option.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className="flex flex-col gap-6">
         <header>
-          <h2>분석 신뢰도</h2>
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">분석 신뢰도</h2>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {RELIABILITY_POINTS.map((point) => (
-            <article key={point} className={styles.card}>
+            <article
+              key={point}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-6 py-7 text-[0.98rem] leading-relaxed text-brand-navy/80 shadow-[0_20px_40px_rgba(15,23,42,0.08)]"
+            >
               <p>{point}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className="flex flex-col gap-6">
         <header>
-          <h2>서비스 프로세스</h2>
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">서비스 프로세스</h2>
         </header>
-        <div className={styles.processGrid}>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
           {PROCESS_STEPS.map((step, index) => (
-            <article key={step} className={styles.process}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{step}</h3>
+            <article
+              key={step}
+              className="flex flex-col gap-3 rounded-[22px] bg-brand-navy px-6 py-7 text-white shadow-[0_24px_48px_rgba(15,23,42,0.22)]"
+            >
+              <span className="text-xs uppercase tracking-[0.2em] text-white/65">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-[1.05rem] font-semibold leading-snug">
+                {step}
+              </h3>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className="flex flex-col gap-6">
         <header>
-          <h2>유전자검사 강점</h2>
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">유전자검사 강점</h2>
         </header>
-        <div className={styles.cardGrid}>
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {TEST_STRENGTHS.map((strength) => (
-            <article key={strength.title} className={styles.card}>
-              <h3>{strength.title}</h3>
+            <article
+              key={strength.title}
+              className="flex flex-col gap-3 rounded-[24px] border border-brand-navy/10 bg-white px-7 py-7 text-[0.98rem] leading-relaxed text-brand-navy/80 shadow-[0_20px_40px_rgba(15,23,42,0.08)]"
+            >
+              <h3 className="text-[1.2rem] font-semibold text-[#7c3aed]">
+                {strength.title}
+              </h3>
               <p>{strength.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className="flex flex-col gap-6">
         <header>
-          <h2>유의사항</h2>
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">유의사항</h2>
         </header>
-        <div className={styles.card}>
-          <p>
+        <div className="rounded-[24px] border border-brand-navy/10 bg-white px-7 py-7 text-[0.98rem] leading-relaxed text-brand-navy/80 shadow-[0_20px_40px_rgba(15,23,42,0.08)]">
+          <p className="text-brand-navy/80">
             GenoPAC 유전자 검사는 질병의 유전적 위험도를 예측하기 위한 서비스로
             질병 유무를 진단하는 용도로 사용될 수 없습니다. 가족력, 생활습관 등
             환경적 요인을 함께 고려해야 하며, 정확한 진단을 위해서는 별도의
@@ -219,13 +255,18 @@ export default function ProductGenopacPage() {
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className="flex flex-col gap-6">
         <header>
-          <h2>기대 효과</h2>
+          <h2 className="text-[1.8rem] font-bold text-brand-navy">기대 효과</h2>
         </header>
-        <ul className={styles.tagList}>
+        <ul className="flex flex-wrap gap-3">
           {SERVICE_TAGS.map((tag) => (
-            <li key={tag}>{tag}</li>
+            <li
+              key={tag}
+              className="rounded-full bg-[#7c3aed]/20 px-4 py-2 text-[0.95rem] font-medium text-[#5b21b6]"
+            >
+              {tag}
+            </li>
           ))}
         </ul>
       </section>

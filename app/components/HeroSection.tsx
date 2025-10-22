@@ -1,7 +1,7 @@
 "use client";
 
+import clsx from "clsx";
 import { useEffect, useState } from "react";
-import styles from "./HeroSection.module.css";
 
 type Slide = {
   id: number;
@@ -44,38 +44,51 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className={styles.section} id="top">
-      <div className={styles.slider}>
+    <section className="relative min-h-[520px] overflow-hidden px-0 py-0" id="top">
+      <div className="relative min-h-[520px] overflow-hidden">
         {SLIDES.map((slide, index) => (
           <article
             key={slide.id}
-            className={`${styles.slide} ${
-              index === activeIndex ? styles.active : ""
-            }`}
+            className={clsx(
+              "absolute inset-0 flex items-center justify-center bg-cover bg-center opacity-0 transition-all duration-700 ease-out",
+              "scale-[1.02]",
+              index === activeIndex && "z-[2] scale-100 opacity-100"
+            )}
             style={{ backgroundImage: `url(${slide.image})` }}
             aria-hidden={index !== activeIndex}
           >
-            <div className={styles.overlay} />
-            <div className={styles.content}>
-              <p className={styles.eyebrow}>{slide.eyebrow}</p>
-              <h1 className={styles.title}>
+            <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(11,33,79,0.7)_0%,rgba(25,58,108,0.45)_35%,rgba(5,15,34,0.55)_100%)]" />
+            <div className="relative z-[3] mx-auto w-full max-w-[1100px] px-6 py-20 text-white sm:py-24 lg:py-28">
+              <p className="mb-5 text-[0.8rem] uppercase tracking-[0.2em] text-white/80">
+                {slide.eyebrow}
+              </p>
+              <h1 className="text-[2.5rem] font-bold leading-tight sm:text-[3rem] lg:text-[3.5rem]">
                 {slide.title}
                 {slide.highlight ? (
-                  <span className={styles.highlight}>{slide.highlight}</span>
+                  <span className="mt-1 block text-[2.8rem] font-extrabold text-brand-cyan sm:text-[3.4rem] lg:text-[4rem]">
+                    {slide.highlight}
+                  </span>
                 ) : null}
               </h1>
-              <p className={styles.description}>{slide.description}</p>
+              <p className="mt-6 max-w-xl text-[1.05rem] font-light leading-relaxed text-white/85">
+                {slide.description}
+              </p>
             </div>
           </article>
         ))}
-        <div className={styles.dots} role="tablist" aria-label="히어로 배너">
+        <div
+          className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-3 sm:bottom-10"
+          role="tablist"
+          aria-label="히어로 배너"
+        >
           {SLIDES.map((slide, index) => (
             <button
               key={slide.id}
               type="button"
-              className={`${styles.dot} ${
-                index === activeIndex ? styles.dotActive : ""
-              }`}
+              className={clsx(
+                "h-3 w-3 rounded-full bg-white/40 transition-transform duration-300",
+                index === activeIndex && "scale-110 bg-brand-cyan"
+              )}
               onClick={() => setActiveIndex(index)}
               aria-pressed={index === activeIndex}
               aria-label={`${index + 1}번째 슬라이드 보기`}
