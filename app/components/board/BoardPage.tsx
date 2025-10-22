@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { BoardPage as BoardData } from "@/app/lib/board";
 import { fetchBoard } from "@/app/lib/board";
 import styles from "./board.module.css";
+import { email_info } from "@/app/config/constant";
 
 type BoardPageProps = {
   moduleId: number;
@@ -13,10 +14,7 @@ type BoardPageProps = {
   emptyMessage?: string;
 };
 
-function resolvePageParam(
-  value: string | string[] | undefined,
-  fallback = 1,
-) {
+function resolvePageParam(value: string | string[] | undefined, fallback = 1) {
   if (Array.isArray(value)) {
     return resolvePageParam(value[0], fallback);
   }
@@ -50,8 +48,8 @@ export async function BoardPage({
           <p>
             게시판을 불러오는 도중 문제가 발생했습니다. 잠시 후 다시 시도해
             주시고, 문제가 지속되면{" "}
-            <Link href="mailto:contact@danaa.co.kr">contact@danaa.co.kr</Link>로
-            문의해 주세요.
+            <Link href={`mailto:${email_info}`}>{email_info}</Link>로 문의해
+            주세요.
           </p>
         </section>
       </main>
@@ -141,7 +139,12 @@ export async function BoardPage({
             다음
           </Link>
         </div>
-        <Link className={styles.externalLink} href={externalUrl} target="_blank" rel="noreferrer">
+        <Link
+          className={styles.externalLink}
+          href={externalUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
           기존 사이트에서 보기
         </Link>
       </div>

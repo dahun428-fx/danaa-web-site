@@ -100,8 +100,8 @@ export function Header() {
       <div className={styles.container}>
         <Link href="/" className={styles.logo} onClick={handleNavigate}>
           <Image
-            src="/resources/images/logo_on.png"
-            alt="DANAA BIO-AGE"
+            src="/resources/images/logo/danaaLogo.png"
+            alt="DANAA Logo"
             width={152}
             height={32}
             priority

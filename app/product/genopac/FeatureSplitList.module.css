@@ -15,7 +15,7 @@
   grid-template-areas: "media copy";
 }
 
-/* imageFirst === false 일 때: 텍스트 왼쪽, 이미지 오른쪽 */
+/* imageFirst === false : 텍스트 왼쪽, 이미지 오른쪽 */
 .block[data-image-left="false"] {
   grid-template-areas: "copy media";
 }
@@ -28,7 +28,7 @@
   grid-area: copy;
 }
 
-/* 이미지 카드 스타일 */
+/* 이미지 카드 */
 .media {
   border-radius: 6px;
   overflow: hidden;
@@ -82,12 +82,24 @@
   color: #4a4a4a;
 }
 
-/* 모바일: 세로 스택 */
+/* ========== 모바일: 세로 스택 ========== */
 @media (max-width: 980px) {
-  .block {
+  /* 특이성 충돌 방지: 두 선택자 모두 선언해서 강제 오버라이드 */
+  .block,
+  .block[data-image-left="false"] {
     grid-template-columns: 1fr;
     grid-template-areas:
       "media"
       "copy";
+  }
+
+  /* (선택) 모바일에서 텍스트 가독성 향상 */
+  .copy {
+    text-align: left;
+    justify-items: start;
+  }
+
+  .desc {
+    max-width: none;
   }
 }

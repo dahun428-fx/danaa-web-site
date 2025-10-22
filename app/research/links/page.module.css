@@ -24,19 +24,23 @@
   color: rgba(15, 23, 42, 0.68);
   line-height: 1.7;
 }
-
+/* 레이아웃 컨테이너가 따로 있다면 wrapper는 생략 가능 */
 .section {
+  width: min(960px, 100%);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  padding: 0 1.5rem;
 }
 
-.section h2 {
+.sectionTitle {
   font-size: 1.6rem;
   font-weight: 700;
   color: #0f172a;
 }
 
+/* 데스크톱 표 래퍼 */
 .tableWrap {
   border-radius: 20px;
   overflow: hidden;
@@ -45,9 +49,12 @@
   box-shadow: 0 20px 36px rgba(15, 23, 42, 0.08);
 }
 
+/* 데스크톱 표 */
 .table {
   width: 100%;
   border-collapse: collapse;
+  /* 넓은 화면 가독성 확보용 최소 너비 (모바일에서 카드형으로 바뀌면 무시됨) */
+  min-width: 560px;
 }
 
 .table th,
@@ -59,32 +66,110 @@
   color: rgba(15, 23, 42, 0.78);
 }
 
-.table th {
+.table thead th {
   background: rgba(15, 23, 42, 0.04);
   font-weight: 600;
   color: #0f172a;
+  text-align: left;
 }
 
-.table tr:last-child td {
+.table tbody tr:last-child td,
+.table tbody tr:last-child th {
   border-bottom: none;
+}
+
+/* 첫 열(사이트명)은 row header 역할 */
+.table tbody th[scope="row"] {
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
 }
 
 .link {
   color: #1d4ed8;
   font-weight: 500;
+  word-break: break-all; /* 긴 URL 줄바꿈 */
 }
-
 .link:hover {
   text-decoration: underline;
 }
 
+/* =========================
+   모바일 카드형 (≤600px)
+========================= */
 @media (max-width: 600px) {
-  .wrapper {
-    padding: 4rem 1.25rem 4.5rem;
+  .section {
+    padding: 0 1.25rem;
   }
 
+  .table {
+    min-width: 0; /* 강제 가로 스크롤 제거 */
+    width: 100%;
+  }
+
+  .table thead {
+    display: none; /* 헤더 숨김 */
+  }
+
+  /* 블록 전환 */
+  .table,
+  .table tbody,
+  .table tr,
   .table th,
   .table td {
-    padding: 0.9rem 1rem;
+    display: block;
+    width: 100%;
+  }
+
+  /* 행=카드 */
+  .table tbody tr {
+    background: #fff;
+    border-bottom: none;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+    padding: 14px 14px 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+  }
+
+  /* 첫 열(사이트명) = 카드 타이틀 */
+  .table tbody th[scope="row"] {
+    background: transparent;
+    padding: 0 0 8px 0;
+    margin: 0;
+    border: none;
+    font-size: 1.02rem;
+    white-space: normal;
+    text-align: left;
+  }
+
+  /* 두 번째 열(URL): 라벨 + 값의 2열 플렉스 */
+  .table tbody td {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 6px 0 0 0; /* 카드 내부 간격 */
+    border: none;
+    font-size: 0.96rem;
+    line-height: 1.6;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+  }
+
+  .table tbody td::before {
+    content: attr(data-label); /* "URL" */
+    flex: 0 0 64px; /* 라벨 폭 */
+    font-weight: 600;
+    color: #0c5a90;
+    white-space: nowrap; /* 한글/영문 라벨 줄바꿈 방지 */
+    word-break: keep-all; /* 한글 단어 단위 유지 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+
+  /* URL 줄바꿈 가독성 */
+  .link {
+    word-break: break-all;
   }
 }

@@ -33,17 +33,18 @@ const ORGANIZATION_LINKS = [
   { name: "한국보건산업진흥원", url: "http://www.khidi.or.kr" },
   { name: "한국보건사회연구원", url: "http://www.kihasa.re.kr" },
 ] as const;
-
+type LinkItem = { name: string; url: string };
 function LinkTable({
   title,
   links,
 }: {
   title: string;
-  links: readonly { name: string; url: string }[];
+  links: readonly LinkItem[];
 }) {
   return (
     <section className={styles.section}>
-      <h2>{title}</h2>
+      <h2 className={styles.sectionTitle}>{title}</h2>
+
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <thead>
@@ -52,16 +53,17 @@ function LinkTable({
               <th scope="col">URL</th>
             </tr>
           </thead>
+
           <tbody>
             {links.map((item) => (
               <tr key={item.url}>
                 <th scope="row">{item.name}</th>
-                <td>
+                <td data-label="URL">
                   <Link
                     href={item.url}
                     className={styles.link}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     {item.url}
                   </Link>

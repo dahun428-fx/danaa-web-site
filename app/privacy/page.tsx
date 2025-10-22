@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../policy.module.css";
+import { email_info } from "../config/constant";
 
 const SECTIONS = [
   {
@@ -30,7 +31,7 @@ const SECTIONS = [
     contents: [
       "개인정보 열람, 정정, 삭제를 요청할 수 있습니다.",
       "동의를 철회하거나 처리 정지를 요구할 수 있습니다.",
-      "요청은 고객센터(contact@danaa.co.kr)로 접수해 주십시오.",
+      `요청은 고객센터(${email_info})로 접수해 주십시오.`,
     ],
   },
 ];
@@ -43,8 +44,9 @@ export default function PrivacyPage() {
         <section className={styles.intro}>
           <h1>개인정보 처리방침</h1>
           <p>
-            DANAA는 이용자의 개인정보를 소중하게 생각하며 관련 법령을 준수합니다.
-            아래 방침을 통해 수집하는 정보와 이용 목적, 보유 기간 등을 안내드립니다.
+            다나아데이터는 이용자의 개인정보를 소중하게 생각하며 관련 법령을
+            준수합니다. 아래 방침을 통해 수집하는 정보와 이용 목적, 보유 기간
+            등을 안내드립니다.
           </p>
         </section>
         {SECTIONS.map((section) => (
@@ -60,7 +62,7 @@ export default function PrivacyPage() {
         <section className={styles.section}>
           <h2>문의처</h2>
           <p>
-            개인정보 보호와 관련된 문의는 <strong>contact@danaa.co.kr</strong> 또는
+            개인정보 보호와 관련된 문의는 <strong>{email_info}</strong> 또는
             고객센터(02-550-8967)로 연락 주시면 성실히 답변드리겠습니다.
           </p>
         </section>

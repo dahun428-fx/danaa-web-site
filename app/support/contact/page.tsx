@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import { email_info } from "@/app/config/constant";
 
 export const dynamic = "force-dynamic";
 
@@ -31,7 +32,12 @@ export default function SupportContactPage() {
           <label htmlFor="name" className={styles.fieldLabel}>
             기관/개인명
           </label>
-          <input id="name" name="name" placeholder="예) 다나아데이터 병원 / 홍길동" className="w-full border border-gray-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100" />
+          <input
+            id="name"
+            name="name"
+            placeholder="예) 다나아데이터 병원 / 홍길동"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
+          />
         </div>
         <div className={styles.row}>
           <label htmlFor="phone" className={styles.fieldLabel}>
@@ -51,7 +57,7 @@ export default function SupportContactPage() {
           <input
             id="email"
             name="email"
-            placeholder="예) contact@danaa.co.kr"
+            placeholder={`예) ${email_info}`}
             type="email"
           />
         </div>
@@ -76,11 +82,14 @@ export default function SupportContactPage() {
           </label>
         </div>
         <div className={styles.actions}>
-          <button type="button" className={`${styles.button} ${styles.buttonPrimary}`}>
+          <button
+            type="button"
+            className={`${styles.button} ${styles.buttonPrimary}`}
+          >
             문의 접수 (준비 중)
           </button>
           <Link
-            href="mailto:contact@danaa.co.kr"
+            href={`mailto:${email_info}`}
             className={`${styles.button} ${styles.buttonSecondary}`}
           >
             이메일로 문의하기
@@ -96,8 +105,7 @@ export default function SupportContactPage() {
             02-550-8967
           </Link>
           {" · "}
-          이메일{" "}
-          <Link href="mailto:contact@danaa.co.kr">contact@danaa.co.kr</Link>
+          이메일 <Link href={`mailto:${email_info}`}>{email_info}</Link>
         </div>
         <div>평일 09:00~18:00 (점심 12:00~13:00) 동안 신속히 답변드립니다.</div>
       </section>

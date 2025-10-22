@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./FeaturesSection.module.css";
 
 const FEATURES = [
@@ -27,16 +28,17 @@ const FEATURES = [
   },
 ];
 
-export function FeaturesSection() {
+export default function FeaturesSection() {
   return (
     <section className={styles.section} id="benefits">
-      <div className="container">
+      <div className={styles.container}>
         <header className={styles.header}>
-<p className="text-sm tracking-wider uppercase text-blue-600 mb-3">
-            다나아데이터 생체나이
+          <p className={styles.subtitle}>
+            다나아데이터의 바이오에이지 생체나이
           </p>
-          <h2>이런 점이 좋습니다</h2>
+          <h2 className={styles.title}>이런 점이 좋습니다</h2>
         </header>
+
         <div className={styles.grid}>
           {FEATURES.map((feature) => (
             <article key={feature.title} className={styles.card}>
@@ -47,8 +49,8 @@ export function FeaturesSection() {
                 aria-label={feature.title}
               />
               <div className={styles.body}>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+                <h3 className={styles.cardTitle}>{feature.title}</h3>
+                <p className={styles.cardText}>{feature.description}</p>
               </div>
             </article>
           ))}
@@ -57,5 +59,3 @@ export function FeaturesSection() {
     </section>
   );
 }
-
-export default FeaturesSection;

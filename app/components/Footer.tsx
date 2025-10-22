@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./Footer.module.css";
+import { email_info } from "../config/constant";
 
 const POLICY_LINKS = [
   { label: "개인정보처리방침", href: "/privacy" },
@@ -13,8 +14,8 @@ export function Footer() {
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Image
-              src="/resources/images/logo_on.png"
-              alt="DANAA BIO-AGE"
+              src="/resources/images/logo/danaaLogo.png"
+              alt="DANAA Logo"
               width={160}
               height={38}
             />
@@ -32,7 +33,7 @@ export function Footer() {
             <strong>문의</strong>
             <ul>
               <li>
-                <a href="mailto:contact@danaa.co.kr">jh1016@danai.co.kr</a>
+                <a href={`mailto:${email_info}`}>{email_info}</a>
               </li>
               <li>
                 <a href="tel:025508967">02-550-8967</a>

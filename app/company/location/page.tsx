@@ -9,7 +9,7 @@ export default function CompanyLocationPage() {
       <PageTitle title="오시는 길" />
       <section className={styles.mapWrap}>
         <iframe
-          title="DANAA 본사 위치"
+          title="다나아데이터 본사 위치"
           src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EB%B4%89%EC%9D%80%EC%82%AC%EB%A1%9C114%EA%B8%B8%2012&t=&z=15&ie=UTF8&iwloc=&output=embed"
           loading="lazy"
           className={styles.mapFrame}

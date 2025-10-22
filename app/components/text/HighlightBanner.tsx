@@ -26,7 +26,7 @@ export default function HighlightBanner({
         maxWidth,
       }}
     >
-      <p className={styles.text}>{text}</p>
+      <div className={styles.text}>{text}</div>
     </section>
   );
 }

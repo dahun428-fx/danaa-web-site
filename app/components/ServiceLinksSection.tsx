@@ -33,7 +33,7 @@ export function ServiceLinksSection() {
             <p>건강한 삶을 위한 파트너십</p>
             <h2>건강관리 연계 서비스</h2>
             <span>
-              DANAA의 생체나이 분석과 연계된 다양한 헬스케어 서비스를
+              다나아데이터의 생체나이 분석과 연계된 다양한 헬스케어 서비스를
               소개합니다.
             </span>
           </header>

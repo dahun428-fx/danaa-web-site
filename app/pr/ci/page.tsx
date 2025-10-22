@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { email_info } from "@/app/config/constant";
 
 const CI_SECTIONS = [
   {
@@ -68,9 +69,9 @@ export default function PrCiPage() {
       ))}
 
       <section className={styles.guide}>
-        사용 시 의문 사항이 있다면{" "}
-        <strong>contact@danaa.co.kr</strong> 또는 <strong>02-550-8967</strong>로
-        연락 주세요. 정확한 원본 파일이 필요하시면 담당자에게 요청해 드립니다.
+        사용 시 의문 사항이 있다면 <strong>{email_info}</strong> 또는{" "}
+        <strong>02-550-8967</strong>로 연락 주세요. 정확한 원본 파일이
+        필요하시면 담당자에게 요청해 드립니다.
       </section>
     </main>
   );

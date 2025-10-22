@@ -33,6 +33,8 @@ export default function FeatureSplitList({ items }: FeatureSplitListProps) {
                 height={it.image.height ?? 480}
                 className={styles.img}
                 priority={idx === 0}
+                // 🔑 반응형 사이즈 힌트: 980px 이하는 100vw, 그 이상은 50vw
+                sizes="(max-width: 980px) 100vw, 50vw"
               />
             </div>
 
