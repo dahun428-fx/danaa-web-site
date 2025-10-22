@@ -1,8 +1,13 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import PageTitle from "@/app/components/section/PageTitle";
 import Tabs, { Tab } from "@/app/components/tab/Tabs";
 import CommonIntroSection from "@/app/components/section/CommonIntroSection";
+import CorpWellnessReasons from "./CorpWellnessReasons";
+import CommonTableSection from "@/app/components/section/CommonTableSection";
+import TextBlock from "@/app/components/text/TextBlock";
+import HighlightBanner from "@/app/components/text/HighlightBanner";
+import CorpProgramFlow from "./CorpProgramFlow";
+import MobilityFeatureCard from "@/app/components/card/MobilityFeatureCard";
 
 const BUSINESS_NEEDS = [
   {
@@ -87,125 +92,142 @@ export default function ProductBizcarePage() {
       <PageTitle title="기업건강분석" />
       <Tabs>
         <Tab id="overview" label="개요">
-          <CommonIntroSection />
+          <CommonIntroSection
+            heading={
+              <p>
+                기업맞춤 건강증진 프로그램 <br />
+                바이오에이지 BIZCARE
+              </p>
+            }
+            imageSrc="/resources/images/sub/sub_0202_img_01.jpg"
+            subChildren={
+              <TextBlock
+                text={`바이오에이지는 생체나이 결과를 분석하여 기업의 노화도 및 임직원의 성별, 연령별 건강상태를 측정하고,
+              부서별 등수 및 기업의 노화요인을 분석하여 기업의 건강상태에 기반한 건강증진 프로그램을 제공합니다.`}
+                align="center"
+                maxWidth="800px"
+              />
+            }
+          />
+          <CommonIntroSection
+            heading="기업맞춤 건강증진 프로그램의 필요"
+            subChildren={<CorpWellnessReasons />}
+          />
         </Tab>
-        <Tab id="overview" label="개요">
-          <CommonIntroSection />
+        <Tab id="special" label="특장점">
+          <CommonTableSection
+            items={[
+              "건강검진 결과와 연계한 실질적인 건강증진 서비스 - 건강검진 데이터를 바탕으로 한 생체나이 측정서비스 제공",
+              "건강상태의 새로운 관리지표 제시 - 건강상태를 객관적으로 나타내는 생체나이 변화를 통한 건강관리",
+              "임직원(부서) 건강관리현황 통계 제공 - 기업 생체나이(누적비교), 부서별 생체나이 등수, 성별/연령별 생체나이 분석, 기업 노화요인 분석",
+              "건강등수에 따른 건강관리 동기부여 - 임직원 개인의 건강등수 관리 (예 : 인사고과 반영 가능).",
+              "기업맞춤 건강증진 프로그램 제공 - 기업생체나이 및 노화요인(대사증후군)을 통한 건강증진 프로그램 제공",
+            ]}
+            subChildren={
+              <HighlightBanner
+                text="매년 꼬박꼬박 검진을 받고 질병은 없다는데 몸은 항상 피로하고 아프고 잔병치레가 많을 때 걱정되고 답답하기만 하죠.
+질병이 없더라도 당신의 몸은 이미 노화가 진행되고 있기 때문입니다."
+              />
+            }
+          />
+        </Tab>
+        <Tab id="process" label="프로세스">
+          <CommonIntroSection
+            heading="적용프로세스"
+            subChildren={
+              <>
+                <TextBlock text="생체나이 건강검진 결과를 바탕으로 기업 건강상태를 분석합니다. 바이오에이지의 생체나이 측정 시스템은 실질적인 동기부여와 참여를 통해 문제요인을 개선하는 기업 맞춤 건강증진 프로그램입니다. 이를 통해 1년 후 기업의 건강상태와 개선사항을 파악할 수 있습니다." />
+                <CorpProgramFlow />
+              </>
+            }
+          />
+        </Tab>
+        <Tab id="analysis" label="분석리포트">
+          <CommonIntroSection
+            children={
+              <TextBlock
+                text="임직원의 생체나이 결과를 분석하여 기업건강 승진리포트를 제공합니다.
+기업건강 승진리포트는 인사/복지 담당자를 위한 기업건강 분석리포트와 기업 내 개인(임직원)이 기업건강을 확인할 수 있는 게재형 리포트로 나뉩니다."
+              />
+            }
+          />
+          <CommonIntroSection
+            heading="인사(검진) 담당자용"
+            subChildren={
+              <>
+                <TextBlock text="기업건강분석 리포트" />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                  }}
+                >
+                  <MobilityFeatureCard
+                    title="기업 IDENTITY 맞춤형 표지"
+                    imageSrc="/resources/images/sub/sub_020204_img_0101.jpg"
+                    description={[]}
+                  />
+                  <MobilityFeatureCard
+                    title="전체 요약 SUMMARY"
+                    imageSrc="/resources/images/sub/sub_020204_img_0102.jpg"
+                    description={[]}
+                  />
+                  <MobilityFeatureCard
+                    title="기업 생체나이"
+                    imageSrc="/resources/images/sub/sub_020204_img_0103.jpg"
+                    description={[]}
+                  />
+                  <MobilityFeatureCard
+                    title="부서별 생체나이"
+                    imageSrc="/resources/images/sub/sub_020204_img_0104.jpg"
+                    description={[]}
+                  />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                  }}
+                >
+                  <MobilityFeatureCard
+                    title="성별/연령별 생체나이"
+                    imageSrc="/resources/images/sub/sub_020204_img_0105.jpg"
+                    description={[]}
+                  />
+                  <MobilityFeatureCard
+                    title="기업 노화요인 분석"
+                    imageSrc="/resources/images/sub/sub_020204_img_0106.jpg"
+                    description={[]}
+                  />
+                  <MobilityFeatureCard
+                    title="부서별 집중관리 대상"
+                    imageSrc="/resources/images/sub/sub_020204_img_0107.jpg"
+                    description={[]}
+                  />
+                  <MobilityFeatureCard
+                    title="기능 나이별 1등 부서"
+                    imageSrc="/resources/images/sub/sub_020204_img_0108.jpg"
+                    description={[]}
+                  />
+                </div>
+              </>
+            }
+          />
+          <CommonIntroSection
+            heading="임직원 (개인별)"
+            subChildren={
+              <>
+                <TextBlock text="전사 게재형 리포트" />
+                <MobilityFeatureCard
+                  title="전사 게재형 리포트"
+                  imageSrc="/resources/images/sub/sub_020204_img_0201.jpg"
+                  description={[]}
+                />
+              </>
+            }
+          />
         </Tab>
       </Tabs>
-      {/* <section className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <h1>기업건강분석 BIZCARE</h1>
-          <p>
-            다나아데이터 BIZCARE는 임직원 건강 데이터를 기반으로 기업의 노화도와
-            건강위험 요인을 분석하고, 맞춤형 프로그램을 설계하는 기업 건강경영
-            솔루션입니다.
-          </p>
-          <p>
-            생체나이 결과를 활용해 조직 수준의 건강 문제를 정확히 진단하고,
-            실행 가능한 개선 전략과 리포트를 제공하여 건강한 조직 문화를 만듭니다.
-          </p>
-        </div>
-        <div className={styles.heroImage}>
-          <Image
-            src="/resources/images/sub/sub_0202_img_01.jpg"
-            alt="기업건강분석 프로그램 소개"
-            width={620}
-            height={480}
-            priority
-          />
-        </div>
-      </section> */}
-
-      <section className={styles.section}>
-        <header>
-          <h2>기업 건강증진 프로그램이 필요한 이유</h2>
-          <p>헬스케어 투자 효과를 극대화하기 위한 고민을 해결합니다.</p>
-        </header>
-        <div className={styles.cardGrid}>
-          {BUSINESS_NEEDS.map((item) => (
-            <article key={item.title} className={styles.card}>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>주요 특장점</h2>
-        </header>
-        <div className={styles.cardGrid}>
-          {ADVANTAGES.map((advantage) => (
-            <article key={advantage} className={styles.card}>
-              <p>{advantage}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>적용 프로세스</h2>
-          <p>생체나이 진단부터 맞춤 프로그램 실행까지 체계적으로 지원합니다.</p>
-        </header>
-        <div className={styles.processGrid}>
-          {PROCESS.map((stage, index) => (
-            <article key={stage.title} className={styles.process}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{stage.title}</h3>
-              <p>
-                <strong>{stage.summary}</strong>
-              </p>
-              <p>{stage.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>분석 리포트 구성</h2>
-          <p>대상자별로 필요한 정보를 나누어 정확한 의사결정을 돕습니다.</p>
-        </header>
-        <div className={styles.cardGrid}>
-          {REPORT_BUNDLES.map((bundle) => (
-            <article key={bundle.audience} className={styles.card}>
-              <h3>{bundle.audience}</h3>
-              <p>{bundle.title}</p>
-              <ul>
-                {bundle.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={styles.highlightCard}>
-          <h3>임직원 참여를 이끄는 맞춤형 프로그램</h3>
-          <p>
-            생체나이 개선 목표를 명확히 제시하고, 건강등수 관리와 개선도
-            피드백을 제공하여 임직원이 자연스럽게 프로그램에 참여하도록 설계되어
-            있습니다. 1년 단위로 변화를 추적해 건강경영의 성과를 수치로 확인할
-            수 있습니다.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>기대 효과</h2>
-        </header>
-        <ul className={styles.tagList}>
-          {VALUE_TAGS.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
-      </section>
     </main>
   );
 }

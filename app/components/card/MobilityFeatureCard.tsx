@@ -11,7 +11,7 @@ type MobilityFeatureCardProps = {
   title: string;
 
   /** 하단 설명 (줄바꿈 가능) */
-  description: string | string[];
+  description?: string | string[];
 };
 
 export default function MobilityFeatureCard({

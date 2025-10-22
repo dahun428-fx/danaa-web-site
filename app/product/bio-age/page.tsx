@@ -13,6 +13,7 @@ import BioAgeResult from "./BioAgeResult";
 import BioAgeCheckList from "./BioAgeCheckList";
 import PentagonProcess from "./PentagonProcess";
 import BioAgeComparison from "./BioAgeComparison";
+import CommonStepsBanner from "@/app/components/card/CommonStepsBanner";
 
 const HERO_COPY = [
   "세계 최초 40만 여 명의 임상 데이터를 기반으로 개발된 바이오에이지 생체나이 측정 시스템은 설문이 아닌 실제 건강검진 데이터를 분석하여 개인의 건강상태와 노화 정도를 정밀하게 진단합니다.",
@@ -359,7 +360,30 @@ export default function ProductBioAgePage() {
                 측정하는 시스템 입니다.
               </p>
             }
-            subChildren={<StepsBanner />}
+            subChildren={
+              <CommonStepsBanner
+                steps={[
+                  {
+                    no: "01",
+                    title: "건강(종합)검진 실시",
+                    image: "/resources/images/sub/sub_0201_img_0303.jpg",
+                    alt: "건강검진 장면",
+                  },
+                  {
+                    no: "02",
+                    title: "생체나이 측정 신청",
+                    image: "/resources/images/sub/sub_0201_img_0304.jpg",
+                    alt: "채혈 장면",
+                  },
+                  {
+                    no: "03",
+                    title: "분석 리포트 수령",
+                    image: "/resources/images/sub/sub_0201_img_0305.jpg",
+                    alt: "분석 리포트",
+                  },
+                ]}
+              />
+            }
           />
         </Tab>
         <Tab id="analysis" label="결과분석">

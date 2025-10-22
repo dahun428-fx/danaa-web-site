@@ -1,0 +1,96 @@
+.section {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2.5rem;
+  display: grid;
+  gap: 2.5rem;
+  color: #3a3a3a;
+}
+
+/* 한 행 */
+.row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* 왼쪽 오각형 */
+.left {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.pentagon {
+  width: clamp(180px, 22vw, 220px);
+  height: auto;
+}
+
+.inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 4px));
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  pointer-events: none;
+}
+
+.no {
+  font-weight: 600;
+  color: #b99d6b;
+  font-size: 0.95rem;
+}
+
+.sep {
+  color: #d7c8b6;
+}
+
+.leftTitle {
+  text-align: center;
+  color: #b99d6b;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+.br {
+  display: block;
+}
+
+/* 오른쪽 텍스트 */
+.right {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 800;
+  color: #444;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.body {
+  font-size: 1.02rem;
+  color: #5a5a5a;
+  line-height: 1.9;
+  text-align: left;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .left {
+    order: -1;
+  }
+  .right {
+    gap: 0.6rem;
+  }
+}

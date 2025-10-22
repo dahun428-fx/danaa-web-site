@@ -1,0 +1,30 @@
+.textBlock {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  line-height: 1.9;
+  color: #444;
+}
+
+.text {
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  font-weight: 400;
+  white-space: pre-line; /* 줄바꿈(\n) 지원 */
+  letter-spacing: -0.02em;
+  color: #4b4b4b;
+}
+
+/* 가독성 향상용 */
+.text strong {
+  font-weight: 700;
+  color: #222;
+}
+
+@media (max-width: 768px) {
+  .textBlock {
+    padding: 1.5rem 1rem;
+  }
+  .text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+}

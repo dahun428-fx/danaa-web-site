@@ -1,0 +1,143 @@
+.section {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2.5rem;
+  color: #544d44;
+}
+
+/* --- top pentagons --- */
+.top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  justify-items: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.2rem);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.pentagon {
+  width: clamp(220px, 26vw, 280px);
+  height: auto;
+}
+
+.pCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 6px));
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  pointer-events: none;
+}
+
+.stepNo {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #b99d6b;
+}
+.sep {
+  color: #d9cbbb;
+}
+.pTitle {
+  text-align: center;
+  color: #b99d6b;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+  line-height: 1.3;
+}
+
+/* --- bottom flow --- */
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.leftStack {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+}
+
+.plus {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #c5b3a3;
+}
+
+/* card styles */
+.card,
+.cardWide {
+  background: #fff;
+  border: 1px solid #efe6db;
+  border-radius: 4px;
+  padding: 1.1rem 1.25rem;
+  min-width: 280px;
+}
+
+.cardWide {
+  width: 100%;
+}
+
+.cardHead {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #b99d6b;
+  text-align: center;
+}
+
+.cardRule {
+  border: none;
+  border-top: 1px solid #efe6db;
+  margin: 0.75rem 0 0.8rem;
+}
+
+.cardBody {
+  text-align: center;
+  margin: 0;
+  color: #3d3d3d;
+  font-weight: 600;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.list li {
+  line-height: 1.7;
+  font-size: 0.98rem;
+  color: #3f3f3f;
+}
+
+/* arrows between columns */
+.arrowRight {
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid #d6c6b6;
+  border-bottom: 2px solid #d6c6b6;
+  transform: rotate(-45deg);
+  justify-self: center;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+  .bottom {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .arrowRight {
+    transform: rotate(45deg);
+  }
+}

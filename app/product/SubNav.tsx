@@ -8,7 +8,7 @@ const PRODUCT_LINKS = [
   { label: "생체나이측정", href: "/product/bio-age" },
   { label: "기업건강분석", href: "/product/bizcare" },
   { label: "유전자분석", href: "/product/genopac" },
-  { label: "자료실", href: "/product/resources" },
+  // { label: "자료실", href: "/product/resources" },
 ] as const;
 
 export function ProductSubNav() {

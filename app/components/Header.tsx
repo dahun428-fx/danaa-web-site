@@ -34,7 +34,7 @@ const NAV_ITEMS: NavItem[] = [
       { label: "생체나이측정", href: "/product/bio-age" },
       { label: "기업건강분석", href: "/product/bizcare" },
       { label: "유전자분석", href: "/product/genopac" },
-      { label: "자료실", href: "/product/resources" },
+      // { label: "자료실", href: "/product/resources" },
     ],
   },
   {
@@ -92,7 +92,11 @@ export function Header() {
   };
 
   return (
-    <header className={styles.wrapper} onMouseEnter={handleMegaMenuEnter} onMouseLeave={handleMegaMenuLeave}>
+    <header
+      className={styles.wrapper}
+      onMouseEnter={handleMegaMenuEnter}
+      onMouseLeave={handleMegaMenuLeave}
+    >
       <div className={styles.container}>
         <Link href="/" className={styles.logo} onClick={handleNavigate}>
           <Image

@@ -1,0 +1,65 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  text-align: center;
+}
+
+/* 상단 영역 (아이콘 + 제목) */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* ✅ 고정 높이로 전체 균일 정렬 */
+  height: 160px;
+  min-height: 160px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px; /* 아이콘 자체 영역 */
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+/* 리스트 */
+.list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0;
+  list-style: none;
+  color: rgba(15, 23, 42, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.5rem 1rem;
+  }
+
+  .header {
+    height: 140px;
+  }
+
+  .title {
+    font-size: 1.05rem;
+  }
+}

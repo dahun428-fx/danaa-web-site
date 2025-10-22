@@ -36,6 +36,7 @@
   border-collapse: collapse;
   border-top: 2px solid #b99d6b;
   background: #fff;
+  text-align: left;
 }
 
 .table tr {

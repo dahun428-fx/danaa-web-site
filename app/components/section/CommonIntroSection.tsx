@@ -4,7 +4,8 @@ import clsx from "clsx";
 import styles from "./CommonIntroSection.module.css";
 
 interface CommonIntroSectionProps {
-  heading?: string;
+  heading?: string | React.ReactNode;
+  subHeading?: string | React.ReactNode;
   title?: string; // HTML 포함 가능
   paragraphs?: string[];
   imageSrc?: string;
@@ -16,6 +17,7 @@ interface CommonIntroSectionProps {
   subChildren?: React.ReactNode;
   isLine?: boolean;
   onlyParagraphs?: boolean;
+  backgroundImageSrc?: string;
 }
 
 export default function CommonIntroSection({
@@ -31,6 +33,8 @@ export default function CommonIntroSection({
   subChildren,
   isLine = true,
   onlyParagraphs = false,
+  subHeading,
+  backgroundImageSrc,
 }: CommonIntroSectionProps) {
   const hasMedia = !!imageSrc;
 
@@ -74,11 +78,25 @@ export default function CommonIntroSection({
   };
 
   return (
-    <section className={styles.introSection} style={{ backgroundColor }}>
+    <section
+      className={styles.introSection}
+      style={{
+        backgroundColor,
+        backgroundImage: backgroundImageSrc
+          ? `url(${backgroundImageSrc})`
+          : undefined,
+      }}
+    >
       {/* 상단 타이틀 */}
+      {isLine && <span className={styles.line} />}
+
+      {subHeading && (
+        <div className={styles.subHeading}>
+          <p>{subHeading}</p>
+        </div>
+      )}
       {heading && (
         <div className={styles.header}>
-          {isLine && <span className={styles.line} />}
           <h1 className={styles.heading}>{heading}</h1>
         </div>
       )}

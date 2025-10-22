@@ -1,0 +1,100 @@
+.section {
+  width: min(var(--mw, 1200px), 100%);
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2rem;
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* 열 수 제어 */
+.grid[data-cols="1"] {
+  grid-template-columns: 1fr;
+}
+.grid[data-cols="2"] {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid[data-cols="3"] {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid[data-cols="4"] {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* 카드 */
+.card {
+  position: relative;
+  height: var(--h, 260px);
+  border-radius: 6px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, var(--op, 0.45));
+  transition: background 180ms ease;
+  z-index: 0;
+}
+
+.card:hover .overlay,
+.card:focus-visible .overlay {
+  background: rgba(15, 23, 42, calc(var(--op, 0.45) - 0.1));
+}
+
+.center {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.no {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* 접근성 */
+.card:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+/* 스크린리더 전용 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* 모바일 */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
