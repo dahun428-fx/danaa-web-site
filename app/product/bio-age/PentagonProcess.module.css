@@ -1,0 +1,142 @@
+.section {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  color: #4b4b4b;
+}
+
+/* 위 3단계 */
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  position: relative;
+}
+
+.col {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.pentagon {
+  width: clamp(220px, 26vw, 300px);
+  height: auto;
+}
+
+.centerInside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 30px));
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  pointer-events: none;
+}
+
+.no {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #b99d6b;
+}
+.sep {
+  color: #d4c6b6;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #b99d6b;
+  line-height: 1.3;
+}
+.ln {
+  display: block;
+}
+
+/* 오각형 아래 문구 */
+.caption {
+  margin-top: 0.6rem;
+  max-width: 20rem;
+  line-height: 1.8;
+  font-size: 0.98rem;
+  color: #66615a;
+}
+
+/* 가운데 화살표 (→) */
+.arrow {
+  position: absolute;
+  top: 40%;
+  right: -1.2rem;
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid #d6c6b6;
+  border-bottom: 2px solid #d6c6b6;
+  transform: rotate(-45deg);
+}
+
+/* 중앙 콜아웃 + 대각선 가이드 */
+.middleWrap {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  margin: clamp(2rem, 6vw, 3rem) 0;
+}
+
+/* 좌우 대각선 */
+.middleWrap::before,
+.middleWrap::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 28%;
+  height: 1px;
+  background: #e9e0d7;
+}
+.middleWrap::before {
+  left: 8%;
+  transform: rotate(-25deg);
+}
+.middleWrap::after {
+  right: 8%;
+  transform: rotate(25deg);
+}
+
+.middleBox {
+  padding: 1.2rem 2rem;
+  border: 1px solid #e4d8cb;
+  border-radius: 4px;
+  background: #fff;
+  color: #6b6761;
+  font-weight: 600;
+}
+
+/* 하단 배너 */
+.footer {
+  margin-top: clamp(1.8rem, 5vw, 2.4rem);
+  background: #a38979;
+  color: #fff;
+  text-align: center;
+  padding: 1.1rem 1rem;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+/* 반응형 */
+@media (max-width: 980px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .arrow {
+    display: none;
+  }
+  .caption {
+    max-width: 32rem;
+  }
+  .middleWrap::before,
+  .middleWrap::after {
+    width: 36%;
+    top: -8px;
+  }
+}

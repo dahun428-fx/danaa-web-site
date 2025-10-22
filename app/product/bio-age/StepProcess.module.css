@@ -1,0 +1,110 @@
+.section {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  display: grid;
+  gap: 4.5rem;
+}
+
+/* 한 단계 블록 */
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+}
+
+/* 이미지 */
+.media {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06);
+}
+.media :global(img) {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 텍스트 */
+.copy {
+  text-align: center;
+  color: #544d44;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: #b8a99a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.75rem;
+}
+
+/* 타이틀 위/아래 라인 */
+.title {
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 800;
+  color: #b99d6b;
+  letter-spacing: -0.02em;
+  margin: 1.1rem 0 1.1rem;
+  position: relative;
+}
+.title::before,
+.title::after {
+  content: "";
+  display: block;
+  width: 54%;
+  height: 1px;
+  background: #dccab5;
+  margin: 0.8rem auto;
+}
+.title::before {
+  margin-top: -1.2rem;
+}
+
+.note {
+  margin-top: -0.4rem;
+  color: #6b7280;
+}
+
+.desc {
+  margin: 0.25rem auto 0;
+  line-height: 1.9;
+  font-size: 1.02rem;
+  max-width: 44ch;
+  color: #3f3f46;
+}
+
+/* 단계 사이 아래 화살표 */
+.separator {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem 0 0.4rem;
+}
+.arrow {
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid #ccb9a2;
+  border-bottom: 2px solid #ccb9a2;
+  transform: rotate(45deg);
+}
+
+/* 반응형 */
+@media (max-width: 980px) {
+  .block {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .media {
+    order: -1;
+  } /* 이미지 위, 텍스트 아래 */
+  .desc {
+    max-width: 60ch;
+  }
+}

@@ -1,0 +1,74 @@
+.section {
+  width: 100%;
+  background-color: #faf6f1;
+  padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  width: min(1100px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+  position: relative;
+}
+
+.title::before {
+  content: "—";
+  display: block;
+  color: #b99d6b;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid #b99d6b;
+  background: #fff;
+}
+
+.table tr {
+  border-bottom: 1px solid #eee;
+}
+
+.number {
+  width: 60px;
+  text-align: center;
+  padding: 1.2rem 0.5rem;
+  font-weight: 500;
+  color: #6b7280;
+  border-right: 1px solid #f0f0f0;
+}
+
+.text {
+  padding: 1.2rem 1.5rem;
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .table {
+    font-size: 0.95rem;
+  }
+
+  .number {
+    width: 45px;
+  }
+
+  .text {
+    padding: 1rem;
+  }
+}

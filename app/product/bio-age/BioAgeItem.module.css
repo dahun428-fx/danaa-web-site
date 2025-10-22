@@ -1,0 +1,93 @@
+.section {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  justify-items: stretch;
+}
+
+/* 카드 */
+.card {
+  position: relative;
+  height: clamp(200px, 28vw, 260px);
+  border-radius: 6px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  isolation: isolate; /* overlay 아래/위 정리 */
+}
+
+/* 마지막 하나만 남으면 가운데로 */
+.centerLast {
+  grid-column: 2 / span 1;
+}
+
+/* 오버레이 */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 0;
+  transition: background 160ms ease;
+}
+
+.card:hover .overlay,
+.card:focus-visible .overlay {
+  background: rgba(15, 23, 42, 0.38);
+}
+
+.center {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0 1rem;
+}
+
+.no {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.title {
+  font-size: clamp(1.15rem, 1.7vw, 1.35rem);
+  font-weight: 700;
+  margin-top: -0.1rem;
+}
+
+.desc {
+  font-size: clamp(0.92rem, 1.2vw, 1rem);
+  line-height: 1.6;
+  opacity: 0.96;
+}
+
+/* 접근성 포커스 */
+.card:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+/* 반응형 */
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+  .centerLast {
+    grid-column: auto;
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

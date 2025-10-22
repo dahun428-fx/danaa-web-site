@@ -1,0 +1,71 @@
+.card {
+  width: min(420px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  background: #f8f3ee; /* 부드러운 베이지 배경 */
+  padding: 1.25rem 1rem 2rem;
+  border-radius: 4px;
+}
+
+/* 이미지 */
+.imageWrap {
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 타이틀 */
+.titleWrap {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+}
+
+.rule {
+  width: 90%;
+  height: 1px;
+  background: #c9ab8a;
+  opacity: 0.9;
+}
+
+.title {
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  color: #b99d6b;
+  letter-spacing: -0.02em;
+}
+
+/* 설명 */
+.desc {
+  text-align: center;
+  color: #333;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  padding: 0 0.5rem;
+}
+
+.desc p {
+  margin: 0.25rem 0;
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem 0.75rem 1.25rem;
+    gap: 1rem;
+  }
+  .rule {
+    width: 88%;
+  }
+}

@@ -1,0 +1,144 @@
+:root {
+  --beige-50: #f7efe7;
+  --beige-200: #e7dbcf;
+  --beige-500: #b99d6b;
+  --text-700: #544d44;
+  --text-900: #2b2826;
+}
+
+.section {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* 왼쪽 원형 스택 */
+.left {
+  display: grid;
+  grid-template-rows: auto 60px auto;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.circle {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1.35;
+}
+.hollow {
+  background: #fff;
+  box-shadow: inset 0 0 0 12px var(--beige-200);
+  color: var(--beige-500);
+}
+.filled {
+  background: #a38979;
+  color: #fff;
+}
+
+/* 아래 화살표 */
+.downArrow {
+  width: 18px;
+  height: 18px;
+  margin: 10px 0 0;
+  border-right: 2px solid #ccb9a2;
+  border-bottom: 2px solid #ccb9a2;
+  transform: rotate(45deg);
+}
+
+/* 오른쪽 내용 */
+.right {
+  color: var(--text-700);
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.list li {
+  list-style: "·  ";
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+/* 결과 배지 라인 */
+.resultRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.9rem 0 0.2rem;
+}
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #b8a99a;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.resultText {
+  color: var(--text-900);
+  font-weight: 600;
+}
+
+/* 체크 패널 */
+.benefitPanel {
+  margin: 1.1rem 0;
+  background: #f7f6f5;
+  border: 1px solid #eee7de;
+  border-radius: 4px;
+  padding: 0.9rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem 1rem;
+}
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #5a5650;
+  font-weight: 600;
+}
+.benefitItem svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+/* 구분선 & 하이라이트 */
+.rule {
+  border: none;
+  border-top: 1px solid #dccab5;
+  margin: 1.2rem 0;
+}
+.highlight {
+  text-align: left;
+  color: #9b7f6c;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  font-size: 1.05rem;
+}
+
+/* 반응형 */
+@media (max-width: 980px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+  .left {
+    grid-template-rows: auto 40px auto;
+  }
+  .benefitPanel {
+    grid-template-columns: 1fr;
+  }
+}

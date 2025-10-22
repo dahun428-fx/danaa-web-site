@@ -1,5 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import PageTitle from "@/app/components/section/PageTitle";
+import Tabs, { Tab } from "@/app/components/tab/Tabs";
+import CommonIntroSection from "@/app/components/section/CommonIntroSection";
 
 const BUSINESS_NEEDS = [
   {
@@ -31,7 +34,8 @@ const PROCESS = [
   {
     title: "건강분석",
     summary: "검진센터",
-    description: "건강검진과 생체나이 결과를 결합해 기업·임직원 상태를 진단합니다.",
+    description:
+      "건강검진과 생체나이 결과를 결합해 기업·임직원 상태를 진단합니다.",
   },
   {
     title: "관리기준 제시",
@@ -80,7 +84,16 @@ const VALUE_TAGS = [
 export default function ProductBizcarePage() {
   return (
     <main className={styles.wrapper}>
-      <section className={styles.hero}>
+      <PageTitle title="기업건강분석" />
+      <Tabs>
+        <Tab id="overview" label="개요">
+          <CommonIntroSection />
+        </Tab>
+        <Tab id="overview" label="개요">
+          <CommonIntroSection />
+        </Tab>
+      </Tabs>
+      {/* <section className={styles.hero}>
         <div className={styles.heroCopy}>
           <h1>기업건강분석 BIZCARE</h1>
           <p>
@@ -102,7 +115,7 @@ export default function ProductBizcarePage() {
             priority
           />
         </div>
-      </section>
+      </section> */}
 
       <section className={styles.section}>
         <header>
@@ -175,9 +188,10 @@ export default function ProductBizcarePage() {
         <div className={styles.highlightCard}>
           <h3>임직원 참여를 이끄는 맞춤형 프로그램</h3>
           <p>
-            생체나이 개선 목표를 명확히 제시하고, 건강등수 관리와 개선도 피드백을
-            제공하여 임직원이 자연스럽게 프로그램에 참여하도록 설계되어 있습니다.
-            1년 단위로 변화를 추적해 건강경영의 성과를 수치로 확인할 수 있습니다.
+            생체나이 개선 목표를 명확히 제시하고, 건강등수 관리와 개선도
+            피드백을 제공하여 임직원이 자연스럽게 프로그램에 참여하도록 설계되어
+            있습니다. 1년 단위로 변화를 추적해 건강경영의 성과를 수치로 확인할
+            수 있습니다.
           </p>
         </div>
       </section>

@@ -1,0 +1,41 @@
+.section {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+  text-align: center;
+  background-color: rgb(249, 245, 239);
+  border-radius: 8px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #b99d6b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 0.6rem 2rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.imageArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.caption {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .caption {
+    font-size: 0.95rem;
+  }
+}

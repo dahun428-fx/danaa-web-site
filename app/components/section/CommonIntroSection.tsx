@@ -4,14 +4,18 @@ import clsx from "clsx";
 import styles from "./CommonIntroSection.module.css";
 
 interface CommonIntroSectionProps {
-  heading: string;
+  heading?: string;
   title?: string; // HTML 포함 가능
   paragraphs?: string[];
   imageSrc?: string;
   imageAlt?: string;
   reverse?: boolean;
   backgroundColor?: string;
+  topChildren?: React.ReactNode;
   children?: React.ReactNode;
+  subChildren?: React.ReactNode;
+  isLine?: boolean;
+  onlyParagraphs?: boolean;
 }
 
 export default function CommonIntroSection({
@@ -23,16 +27,63 @@ export default function CommonIntroSection({
   reverse = false,
   backgroundColor = "#f9f5ef",
   children,
+  topChildren,
+  subChildren,
+  isLine = true,
+  onlyParagraphs = false,
 }: CommonIntroSectionProps) {
   const hasMedia = !!imageSrc;
+
+  const text = () => {
+    if (onlyParagraphs) {
+      return (
+        <div className={styles.textWrapper}>
+          {paragraphs?.map((t, i) => (
+            <p key={i} className={styles.paragraph}>
+              {t}
+            </p>
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <>
+          {title || children ? (
+            <div className={styles.textWrapper}>
+              {/* HTML이 들어올 수 있는 제목 */}
+              {title && (
+                <h2
+                  className={styles.title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                />
+              )}
+              {(title || paragraphs) && <hr className={styles.divider} />}
+
+              {children
+                ? children
+                : paragraphs?.map((t, i) => (
+                    <p key={i} className={styles.paragraph}>
+                      {t}
+                    </p>
+                  ))}
+            </div>
+          ) : null}
+        </>
+      );
+    }
+  };
 
   return (
     <section className={styles.introSection} style={{ backgroundColor }}>
       {/* 상단 타이틀 */}
-      <div className={styles.header}>
-        <span className={styles.line} />
-        <h1 className={styles.heading}>{heading}</h1>
-      </div>
+      {heading && (
+        <div className={styles.header}>
+          {isLine && <span className={styles.line} />}
+          <h1 className={styles.heading}>{heading}</h1>
+        </div>
+      )}
+      {/* 상단 추가 콘텐츠 */}
+      {topChildren && topChildren}
 
       {/* 본문 콘텐츠 */}
       <div
@@ -53,27 +104,10 @@ export default function CommonIntroSection({
             />
           </div>
         )}
-        {(title || children) && (
-          <div className={styles.textWrapper}>
-            {/* HTML이 들어올 수 있는 제목 */}
-            {title && (
-              <h2
-                className={styles.title}
-                dangerouslySetInnerHTML={{ __html: title }}
-              />
-            )}
-            {(title || paragraphs) && <hr className={styles.divider} />}
 
-            {children
-              ? children
-              : paragraphs?.map((t, i) => (
-                  <p key={i} className={styles.paragraph}>
-                    {t}
-                  </p>
-                ))}
-          </div>
-        )}
+        {text()}
       </div>
+      {subChildren && subChildren}
     </section>
   );
 }

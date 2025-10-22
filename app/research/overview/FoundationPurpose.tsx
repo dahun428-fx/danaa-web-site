@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "./FoundationPurpose.module.css";
+import CommonTableSection from "@/app/components/section/CommonTableSection";
 
 const PURPOSE_LIST = [
   "과학적이며, 임상적으로 쉽게 접근할 수 있는 노화 측정시스템의 개발",
@@ -9,21 +8,5 @@ const PURPOSE_LIST = [
 ];
 
 export default function FoundationPurpose() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        <h1 className={styles.title}>설립 목적</h1>
-        <table className={styles.table}>
-          <tbody>
-            {PURPOSE_LIST.map((text, index) => (
-              <tr key={index}>
-                <td className={styles.number}>{index + 1}</td>
-                <td className={styles.text}>{text}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  );
+  return <CommonTableSection heading="설립 목적" items={PURPOSE_LIST} />;
 }

@@ -1,5 +1,18 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import PageTitle from "@/app/components/section/PageTitle";
+import Tabs, { Tab } from "@/app/components/tab/Tabs";
+import CommonIntroSection from "@/app/components/section/CommonIntroSection";
+import BioAgeHighlights from "./BioAgeHighlights";
+import MobilityFeatureCard from "@/app/components/card/MobilityFeatureCard";
+import CommonTableSection from "@/app/components/section/CommonTableSection";
+import StepProcess from "./StepProcess";
+import StepsBanner from "./StepsBanner";
+import BioAgeDefinition from "./BioAgeDefinition";
+import BioAgeResult from "./BioAgeResult";
+import BioAgeCheckList from "./BioAgeCheckList";
+import PentagonProcess from "./PentagonProcess";
+import BioAgeComparison from "./BioAgeComparison";
 
 const HERO_COPY = [
   "세계 최초 40만 여 명의 임상 데이터를 기반으로 개발된 바이오에이지 생체나이 측정 시스템은 설문이 아닌 실제 건강검진 데이터를 분석하여 개인의 건강상태와 노화 정도를 정밀하게 진단합니다.",
@@ -7,10 +20,10 @@ const HERO_COPY = [
 ];
 
 const DEVELOPMENT_HIGHLIGHTS = [
-  "개인의 노화 정도를 생물학적 나이로 정량화하여 관리 지표로 활용합니다.",
-  "노화방지 치료의 효과를 객관적으로 평가하고 피드백할 수 있습니다.",
-  "식이·운동·스트레스 등 생활습관 개선 가이드를 체계적으로 제공합니다.",
-  "정기적인 반복 측정을 통해 개인의 노화 속도 변화를 추적합니다.",
+  "개인의 노화 정도를 생물학적 나이로 측정, 산출이 가능",
+  "노화방지 치료 효과를 객관적으로 판단",
+  "식이요법과 운동 등과 같은 식생활 양식의 변화, 부족한 호르몬의 보충을 위한 다양한 항산화제 처방 가능",
+  "동일한 환자에 대해 정기적으로 Bio-Age®의 반복 측정을 통한 개인의 노화속도까지도 파악",
 ];
 
 const BACKGROUND_TEXT =
@@ -41,22 +54,26 @@ const SCIENCE_GALLERY = [
   {
     image: "/resources/images/sub/sub_0201_img_0201.jpg",
     title: "보건신기술(HT) 인증",
-    description: "생체나이 측정 기술은 보건복지부 보건신기술 인증을 통해 신뢰성을 확보했습니다.",
+    description:
+      "생체나이 측정 기술은 보건복지부 보건신기술 인증을 통해 신뢰성을 확보했습니다.",
   },
   {
     image: "/resources/images/sub/sub_0201_img_0202.jpg",
     title: "Affymetrix Genchip 호환",
-    description: "미국 Affymetrix Genchip compatible 인증을 국내에서 유일하게 획득했습니다.",
+    description:
+      "미국 Affymetrix Genchip compatible 인증을 국내에서 유일하게 획득했습니다.",
   },
   {
     image: "/resources/images/sub/sub_0201_img_0203.jpg",
     title: "세계일류상품 선정",
-    description: "산업자원부 세계 일류상품으로 선정되어 기술 경쟁력을 인정받았습니다.",
+    description:
+      "산업자원부 세계 일류상품으로 선정되어 기술 경쟁력을 인정받았습니다.",
   },
   {
     image: "/resources/images/sub/sub_0201_img_0204.jpg",
     title: "다수의 학술 검증",
-    description: "개발 소프트웨어와 분석 기술은 100편 이상의 SCI 논문에서 인용되었습니다.",
+    description:
+      "개발 소프트웨어와 분석 기술은 100편 이상의 SCI 논문에서 인용되었습니다.",
   },
 ];
 
@@ -76,7 +93,8 @@ const MEASUREMENT_FLOW = [
   },
   {
     title: "건강상태 객관적 분석/평가",
-    description: "생체나이 측정시스템을 통해 분석 리포트를 발행하고 건강상태를 객관화합니다.",
+    description:
+      "생체나이 측정시스템을 통해 분석 리포트를 발행하고 건강상태를 객관화합니다.",
     image: "/resources/images/sub/sub_0201_img_0302.jpg",
   },
 ];
@@ -91,13 +109,15 @@ const HEALTH_CHECK_STEPS = [
   {
     step: "02",
     title: "생체나이 측정 신청",
-    description: "검진센터 또는 기업 프로그램을 통해 생체나이 분석을 의뢰합니다.",
+    description:
+      "검진센터 또는 기업 프로그램을 통해 생체나이 분석을 의뢰합니다.",
     image: "/resources/images/sub/sub_0201_img_0304.jpg",
   },
   {
     step: "03",
     title: "분석 리포트 수령",
-    description: "개선 가이드가 담긴 결과 리포트를 통해 생활습관을 지속적으로 관리합니다.",
+    description:
+      "개선 가이드가 담긴 결과 리포트를 통해 생활습관을 지속적으로 관리합니다.",
     image: "/resources/images/sub/sub_0201_img_0305.jpg",
   },
 ];
@@ -128,7 +148,8 @@ const FUNCTION_AGES = [
   },
   {
     title: "면역나이",
-    description: "외부 병원체에 대한 방어 능력을 평가해 면역력 저하를 조기에 확인합니다.",
+    description:
+      "외부 병원체에 대한 방어 능력을 평가해 면역력 저하를 조기에 확인합니다.",
     image: "/resources/images/sub/sub_0201_img_040205.jpg",
   },
   {
@@ -138,7 +159,8 @@ const FUNCTION_AGES = [
   },
   {
     title: "관절나이",
-    description: "체중·근육·염증 상태를 통해 관절 기능의 노화 정도를 확인합니다.",
+    description:
+      "체중·근육·염증 상태를 통해 관절 기능의 노화 정도를 확인합니다.",
     image: "/resources/images/sub/sub_0201_img_040207.jpg",
   },
 ];
@@ -169,12 +191,14 @@ const PREMIUM_REPORT = [
 const DISEASE_REPORT = [
   {
     title: "질환 발병 가능성 비교",
-    description: "동일 연령대와 비교해 주요 만성질환의 발병 위험도를 제시합니다.",
+    description:
+      "동일 연령대와 비교해 주요 만성질환의 발병 위험도를 제시합니다.",
     image: "/resources/images/sub/sub_0201_img_040401.jpg",
   },
   {
     title: "질병 예측 결과",
-    description: "제2형 당뇨, 고혈압, 뇌혈관질환, 관상동맥질환의 발병 가능성을 예측합니다.",
+    description:
+      "제2형 당뇨, 고혈압, 뇌혈관질환, 관상동맥질환의 발병 가능성을 예측합니다.",
     image: "/resources/images/sub/sub_0201_img_040402.jpg",
   },
   {
@@ -216,7 +240,8 @@ const DIFFERENTIATION = {
       "지속적인 피드백으로 질병 예방과 개선 효과를 확보합니다.",
     ],
     highlights: ["기존 검진과의 차별성", "재검진율 증가", "추가 관리고객 확보"],
-    result: "위험군 고객의 예방관리를 통해 신규 고객과 매출 확대를 기대할 수 있습니다.",
+    result:
+      "위험군 고객의 예방관리를 통해 신규 고객과 매출 확대를 기대할 수 있습니다.",
     note: "고객 만족도 제고를 통해 경쟁력 있는 검진센터로 도약할 수 있습니다.",
   },
 } as const;
@@ -224,252 +249,232 @@ const DIFFERENTIATION = {
 export default function ProductBioAgePage() {
   return (
     <main className={styles.wrapper}>
-      <section className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <h1>생체나이 측정 시스템</h1>
-          {HERO_COPY.map((paragraph) => (
-            <p key={paragraph} className={styles.caption}>
-              {paragraph}
-            </p>
-          ))}
-        </div>
-        <div className={styles.heroImage}>
-          <Image
-            src="/resources/images/sub/sub_0201_img_01.jpg"
-            alt="생체나이 측정 시스템 설명"
-            width={640}
-            height={480}
-            priority
-          />
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>개요</h2>
-          <p>
-            설문에 의존하던 기존 노화 측정의 한계를 넘어 실제 임상 데이터를
-            기반으로 개인의 건강 상태를 입체적으로 분석합니다.
-          </p>
-        </header>
-        <ul className={styles.bulletList}>
-          {DEVELOPMENT_HIGHLIGHTS.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <div className={styles.highlightNote}>
-          알고리즘을 통해 개인의 검진 데이터를 분석하여 생체나이와 노화속도를
-          측정하고, 이에 따른 영양·운동·스트레스 관리 가이드를 제공합니다.
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>개발배경</h2>
-        </header>
-        <div className={styles.mediaGrid}>
-          <article className={styles.mediaCard}>
-            <div className={styles.mediaImage}>
-              <Image
-                src="/resources/images/sub/sub_0201_img_03.jpg"
-                alt="생체나이 연구 역사"
-                width={640}
-                height={480}
-              />
-            </div>
-            <div className={styles.mediaBody}>
-              <p>{BACKGROUND_TEXT}</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>핵심 분석 포인트</h2>
-        </header>
-        <div className={styles.featureGrid}>
-          {SYSTEM_HIGHLIGHTS.map((item) => (
-            <article key={item.title} className={styles.featureCard}>
-              <span className={styles.featureNumber}>{item.number}</span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>과학/학술적 인증</h2>
-        </header>
-        <div className={styles.imageGallery}>
-          {SCIENCE_GALLERY.map((item) => (
-            <figure key={item.title} className={styles.imageCard}>
-              <Image src={item.image} alt={item.title} width={320} height={220} />
-              <figcaption>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-        <ul className={styles.bulletList}>
-          {GENOME_HIGHLIGHTS.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>측정 방법</h2>
-        </header>
-        <div className={styles.mediaGrid}>
-          {MEASUREMENT_FLOW.map((item) => (
-            <article key={item.title} className={styles.mediaCard}>
-              <div className={styles.mediaImage}>
-                <Image src={item.image} alt={item.title} width={480} height={320} />
-              </div>
-              <div className={styles.mediaBody}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        <h3 className={styles.subheading}>생체나이 건강검진 절차</h3>
-        <div className={styles.mediaGrid}>
-          {HEALTH_CHECK_STEPS.map((item) => (
-            <article key={item.title} className={styles.mediaCard}>
-              <div className={styles.mediaImage}>
-                <Image src={item.image} alt={item.title} width={480} height={320} />
-              </div>
-              <div className={styles.mediaBody}>
-                <span className={styles.featureNumber}>{item.step}</span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>결과 분석</h2>
-        </header>
-        <div className={styles.mediaGrid}>
-          <article className={styles.mediaCard}>
-            <div className={styles.mediaImage}>
-              <Image
-                src="/resources/images/sub/sub_0201_img_0401.jpg"
-                alt="생체나이란"
-                width={640}
-                height={420}
-              />
-            </div>
-            <div className={styles.mediaBody}>
-              <h3>생체나이란?</h3>
-              <p>
-                주민등록상의 출생 나이가 아닌 현재의 생리·기능적 건강상태와 노화 정도를 나타내는 실제 나이입니다.
-                생체나이는 노화 진단과 예방 관리에 있어 가장 핵심적인 지표로 활용됩니다.
+      <PageTitle title="생체나이측정" />
+      <Tabs>
+        <Tab id="overview" label="개요">
+          <CommonIntroSection
+            heading="개인의 건강상태와 노화정도를 측정합니다."
+            paragraphs={[]}
+            imageSrc="/resources/images/sub/sub_0201_img_01.jpg"
+            backgroundColor="#fff"
+            isLine={false}
+            subChildren={
+              <p style={{ marginTop: "1rem", margin: "1rem" }}>
+                세계 최초 실제 40만 여 명의 임상 데이터로 개발된 노화를 측정할
+                수 있는 유일한 <br />
+                시스템인 바이오에이지 생체나이 측정시스템은 설문이 아닌 실제
+                검진데이터를 분석하여 <br />
+                개인의 건강상태와 노화정도를 측정하는 시스템 입니다.
               </p>
-            </div>
-          </article>
-        </div>
-
-        <h3 className={styles.subheading}>종합 생체나이 제공 항목</h3>
-        <div className={styles.metricsGrid}>
-          {FUNCTION_AGES.map((item) => (
-            <article key={item.title} className={styles.metricCard}>
-              <Image src={item.image} alt={item.title} width={320} height={220} />
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-
-        <h3 className={styles.subheading}>생체나이 분석 리포트 (고급형)</h3>
-        <div className={styles.reportGrid}>
-          {PREMIUM_REPORT.map((item) => (
-            <article key={item.title} className={styles.reportCard}>
-              <Image src={item.image} alt={item.title} width={320} height={220} />
-              <div className={styles.reportBody}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+            }
+          />
+          <CommonIntroSection
+            heading="개발의의"
+            title="노화방지 진료에 새로운 장을 열다."
+            paragraphs={DEVELOPMENT_HIGHLIGHTS}
+            backgroundColor="#fff"
+            imageSrc="/resources/images/sub/sub_0201_img_02.jpg"
+          />
+          <CommonIntroSection
+            heading="개발배경"
+            topChildren={
+              <p>
+                의학의 발전과 더불어 이에 관한 많은 임상 자료가 축적되며, 일부
+                선진국에서 노화 측정 시스템을 개발하여 임상에 적용하기
+                시작하였습니다. 2003년 국내에서는 대한생체나이의학연구소와
+                대한임상노화방지학회의 공동연구를 통해 외국시스템보다도 더욱
+                발전된 노화 측정 시스템 (Bio-Age®)이 개발되어 노화방지 진료에
+                새로운 장을 열게 되었습니다.
+              </p>
+            }
+            subChildren={
+              <CommonIntroSection
+                imageSrc="/resources/images/sub/sub_0201_img_03.jpg"
+                title="생체나이 측정 시스템 개발 배경"
+                paragraphs={[
+                  "현대적인 노화방지 의학이 시작된 1970년대 이래로 학자들은 노화방지 의학의 과학적인 개념과 프로토콜이 정확하게 적용될 수 있는 확실한 도구를 찾기 위해 수많은 연구를 계속해왔습니다. 각각의 생체 표지자 검사를 통한 개별적인 생물학 나이는 측정할 수 있었지만, 수많은 생체 표지자들을 종합한 진정한 생물학적 나이를 체계적으로 측정하는 것은 방대한 임상자료와 활용의 어려움으로 인해 힘든 일이었습니다. 이에, 대한생체나이의학연구소에서는 생체 표지자를 이용한 노화 측정 프로토콜 개발을 위한 연구를 시작하게 됩니다.",
+                ]}
+                children={<p></p>}
+                backgroundColor="#fff"
+                onlyParagraphs={true}
+              />
+            }
+          />
+        </Tab>
+        <Tab id="strength" label="특장점">
+          <BioAgeHighlights />
+          <CommonIntroSection
+            heading="과학/학술적 인증"
+            subChildren={
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <MobilityFeatureCard
+                  title="가동성 운동"
+                  imageSrc="/resources/images/sub/sub_0201_img_0201_m.jpg"
+                  description={[
+                    "재발성 아프타성 구내염, 베체트 증후군,",
+                    "외상성 궤양, 욕창성 궤양",
+                  ]}
+                />
+                <MobilityFeatureCard
+                  title="근력강화 운동"
+                  imageSrc="/resources/images/sub/sub_0201_img_0202.jpg"
+                  description={[
+                    "천포창, 유천포창, 포진성 치은",
+                    "구내염, 구순포진, 대상포진,",
+                    "포진성 구협염, 수족구병",
+                  ]}
+                />
+                <MobilityFeatureCard
+                  title="심폐지구력 운동"
+                  imageSrc="/resources/images/sub/sub_0201_img_0203.jpg"
+                  description={["다형 홍반, 구강 칸디다증"]}
+                />
+                <MobilityFeatureCard
+                  title="조절 및 협조 운동"
+                  imageSrc="/resources/images/sub/sub_0201_img_0203.jpg"
+                  description={["균열설, 설모증, 지도형설,", "방사선 점막염"]}
+                />
               </div>
-            </article>
-          ))}
-        </div>
-
-        <h3 className={styles.subheading}>생체나이 분석 리포트 (질환관리형)</h3>
-        <p className={styles.caption}>
-          한국인 30만여 명의 임상 데이터를 기반으로 제2형 당뇨, 고혈압, 뇌혈관질환, 관상동맥질환의 발병 가능성을 예측하고
-          동일 연령대와 비교한 위험도를 제시합니다.
-        </p>
-        <div className={styles.reportGrid}>
-          {DISEASE_REPORT.map((item) => (
-            <article key={item.title} className={styles.reportCard}>
-              <Image src={item.image} alt={item.title} width={320} height={220} />
-              <div className={styles.reportBody}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+            }
+          />
+          <CommonTableSection
+            heading="유전체 정보 분석 관련"
+            items={GENOME_HIGHLIGHTS}
+          />
+        </Tab>
+        <Tab id="method" label="측정방법">
+          <StepProcess />
+          <CommonIntroSection
+            heading="생체나이 건강검진"
+            topChildren={
+              <p>
+                세계 최초 40만 여 명의 임상 데이터로 개발된 노화를 측정할 수
+                있는 유일한 시스템인 바이오에이지 생체나이 측정시스템은 설문이
+                아닌 실제 검진데이터를 분석하여 개인의 건강상태와 노화정도를
+                측정하는 시스템 입니다.
+              </p>
+            }
+            subChildren={<StepsBanner />}
+          />
+        </Tab>
+        <Tab id="analysis" label="결과분석">
+          <BioAgeDefinition
+            title="생체나이란?"
+            description="출생나이(주민등록상의 나이)가 아닌 현재 자신의 생리·기능적 건강상태 및 노화 정도를 나타내는 생물학적 나이입니다."
+          >
+            <Image
+              src="/resources/images/sub/sub_0201_img_0401.jpg"
+              alt="출생나이와 생체나이 비교 이미지"
+              width={800}
+              height={400}
+            />
+          </BioAgeDefinition>
+          <CommonIntroSection
+            heading="종합생체나이 제공"
+            subChildren={
+              <>
+                <BioAgeResult />
+              </>
+            }
+            backgroundColor="#fff"
+          />
+          <CommonIntroSection
+            heading="생체나이 분석 리포트 (고급형)"
+            topChildren={
+              <p>
+                개인의 전체적인 생리/기능적 노화 정도를 나타내는 생체나이를 통해
+                개인의 건강상태를 종합적으로 판단하여 생체나이, 노화 관련 요인,
+                생체나이 개선 스트레스 관리 가이드, 영양관리 가이드, 맞춤운동
+                관리 프로그램 등이 담긴 결과지를 제공합니다.
+              </p>
+            }
+            subChildren={
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <MobilityFeatureCard
+                  title="생체나이"
+                  imageSrc="/resources/images/sub/sub_0201_img_040301.jpg"
+                  description={[]}
+                />
+                <MobilityFeatureCard
+                  title="주요노화요인"
+                  imageSrc="/resources/images/sub/sub_0201_img_040302.jpg"
+                  description={[]}
+                />
+                <MobilityFeatureCard
+                  title="노화개선 스트레스 관리가이드"
+                  imageSrc="/resources/images/sub/sub_0201_img_040303.jpg"
+                  description={[]}
+                />
+                <MobilityFeatureCard
+                  title="노화개선 영양/운동 관리가이드"
+                  imageSrc="/resources/images/sub/sub_0201_img_040304.jpg"
+                  description={[]}
+                />
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <header>
-          <h2>적용 분야</h2>
-        </header>
-        <ul className={styles.bulletList}>
-          {USE_CASES.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-
-        <h3 className={styles.subheading}>운영 프로세스</h3>
-        <ul className={styles.bulletList}>
-          {ADOPTION_PROCESS.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-
-        <h3 className={styles.subheading}>도입 효과</h3>
-        <div className={styles.comparison}>
-          <article className={styles.comparisonColumn}>
-            <h3>{DIFFERENTIATION.traditional.title}</h3>
-            <ul className={styles.bulletList}>
-              {DIFFERENTIATION.traditional.bullets.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <div className={styles.comparisonFooter}>
-              결과: {DIFFERENTIATION.traditional.result}
-            </div>
-          </article>
-          <article className={styles.comparisonColumn}>
-            <h3>{DIFFERENTIATION.bioAge.title}</h3>
-            <ul className={styles.bulletList}>
-              {DIFFERENTIATION.bioAge.bullets.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <ul className={styles.listPlain}>
-              {DIFFERENTIATION.bioAge.highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <div className={styles.comparisonFooter}>
-              결과: {DIFFERENTIATION.bioAge.result}
-            </div>
-            <div className={styles.highlightNote}>{DIFFERENTIATION.bioAge.note}</div>
-          </article>
-        </div>
-      </section>
+            }
+          />
+          <CommonIntroSection
+            heading="생체나이 분석 리포트 (질환관리형)"
+            topChildren={
+              <p>
+                한국인 30만여 명의 임상데이터를 기반으로 한국인 주요 만성질환
+                4가지 (제2형 당뇨, 고혈압, 뇌혈관질환, 관상동맥질환)의 발병
+                가능성을 예측하고, 동일 연령대의 발병 가능성과 비교하여 현재
+                수검자의 상태를 알려드립니다. 또한, 운동 및 식이를 통해 개선
+                가이드를 제공합니다.
+              </p>
+            }
+            subChildren={
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <MobilityFeatureCard
+                  title="질환의 발병 가능성 비교"
+                  imageSrc="/resources/images/sub/sub_0201_img_040401.jpg"
+                  description={[]}
+                />
+                <MobilityFeatureCard
+                  title="질병 예측 결과"
+                  imageSrc="/resources/images/sub/sub_0201_img_040402.jpg"
+                  description={[]}
+                />
+                <MobilityFeatureCard
+                  title="맞춤형 관리"
+                  imageSrc="/resources/images/sub/sub_0201_img_040403.jpg"
+                  description={[]}
+                />
+              </div>
+            }
+          />
+        </Tab>
+        <Tab id="usecases" label="적용분야">
+          <CommonIntroSection
+            heading="검진상품"
+            children={<BioAgeCheckList />}
+          />
+          <CommonIntroSection
+            heading="적용프로세스"
+            children={<PentagonProcess />}
+          />
+          <CommonIntroSection
+            heading="도입효과"
+            children={<BioAgeComparison />}
+          />
+        </Tab>
+      </Tabs>
     </main>
   );
 }
