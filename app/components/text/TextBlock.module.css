@@ -6,19 +6,36 @@
 }
 
 .text {
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  font-weight: 400;
   white-space: pre-line; /* 줄바꿈(\n) 지원 */
   letter-spacing: -0.02em;
   color: #4b4b4b;
 }
 
-/* 가독성 향상용 */
+/* 기본 폰트 크기(md) */
+.md .text {
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  font-weight: 400;
+}
+
+/* 작은 텍스트(sm) */
+.sm .text {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* 큰 텍스트(lg) */
+.lg .text {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 2;
+}
+
+/* 강조 텍스트 */
 .text strong {
   font-weight: 700;
   color: #222;
 }
 
+/* 반응형 */
 @media (max-width: 768px) {
   .textBlock {
     padding: 1.5rem 1rem;

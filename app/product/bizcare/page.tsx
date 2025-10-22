@@ -96,7 +96,7 @@ export default function ProductBizcarePage() {
             heading={
               <p>
                 기업맞춤 건강증진 프로그램 <br />
-                바이오에이지 BIZCARE
+                <span className={styles.highlight}>바이오에이지 BIZCARE</span>
               </p>
             }
             imageSrc="/resources/images/sub/sub_0202_img_01.jpg"
@@ -116,6 +116,7 @@ export default function ProductBizcarePage() {
         </Tab>
         <Tab id="special" label="특장점">
           <CommonTableSection
+            isCheckIcon={true}
             items={[
               "건강검진 결과와 연계한 실질적인 건강증진 서비스 - 건강검진 데이터를 바탕으로 한 생체나이 측정서비스 제공",
               "건강상태의 새로운 관리지표 제시 - 건강상태를 객관적으로 나타내는 생체나이 변화를 통한 건강관리",
@@ -125,8 +126,19 @@ export default function ProductBizcarePage() {
             ]}
             subChildren={
               <HighlightBanner
-                text="매년 꼬박꼬박 검진을 받고 질병은 없다는데 몸은 항상 피로하고 아프고 잔병치레가 많을 때 걱정되고 답답하기만 하죠.
-질병이 없더라도 당신의 몸은 이미 노화가 진행되고 있기 때문입니다."
+                text={
+                  <div
+                    style={{
+                      width: "100%",
+                    }}
+                  >
+                    매년 꼬박꼬박 검진을 받고 질병은 없다는데 몸은 항상 피로하고
+                    아프고 잔병치레가 많을 때 걱정되고 답답하기만 하죠.
+                    <br />
+                    질병이 없더라도 당신의 몸은 이미 노화가 진행되고 있기
+                    때문입니다.
+                  </div>
+                }
               />
             }
           />
@@ -136,20 +148,20 @@ export default function ProductBizcarePage() {
             heading="적용프로세스"
             subChildren={
               <>
-                <TextBlock text="생체나이 건강검진 결과를 바탕으로 기업 건강상태를 분석합니다. 바이오에이지의 생체나이 측정 시스템은 실질적인 동기부여와 참여를 통해 문제요인을 개선하는 기업 맞춤 건강증진 프로그램입니다. 이를 통해 1년 후 기업의 건강상태와 개선사항을 파악할 수 있습니다." />
+                <TextBlock
+                  size="sm"
+                  text="생체나이 건강검진 결과를 바탕으로 기업 건강상태를 분석합니다. 바이오에이지의 생체나이 측정 시스템은 실질적인 동기부여와 참여를 통해 문제요인을 개선하는 기업 맞춤 건강증진 프로그램입니다. 이를 통해 1년 후 기업의 건강상태와 개선사항을 파악할 수 있습니다."
+                />
                 <CorpProgramFlow />
               </>
             }
           />
         </Tab>
         <Tab id="analysis" label="분석리포트">
-          <CommonIntroSection
-            children={
-              <TextBlock
-                text="임직원의 생체나이 결과를 분석하여 기업건강 승진리포트를 제공합니다.
+          <TextBlock
+            size="sm"
+            text="임직원의 생체나이 결과를 분석하여 기업건강 승진리포트를 제공합니다.
 기업건강 승진리포트는 인사/복지 담당자를 위한 기업건강 분석리포트와 기업 내 개인(임직원)이 기업건강을 확인할 수 있는 게재형 리포트로 나뉩니다."
-              />
-            }
           />
           <CommonIntroSection
             heading="인사(검진) 담당자용"

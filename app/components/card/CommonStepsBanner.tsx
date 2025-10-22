@@ -37,7 +37,6 @@ export default function CommonStepsBanner({
         {steps.map((s, i) => {
           const content = (
             <>
-              <span className="sr-only">{s.alt || s.title}</span>
               <div
                 className={styles.overlay}
                 style={{ ["--op" as any]: overlayOpacity }}

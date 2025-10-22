@@ -18,6 +18,7 @@ interface CommonIntroSectionProps {
   isLine?: boolean;
   onlyParagraphs?: boolean;
   backgroundImageSrc?: string;
+  headingColor?: string;
 }
 
 export default function CommonIntroSection({
@@ -35,6 +36,7 @@ export default function CommonIntroSection({
   onlyParagraphs = false,
   subHeading,
   backgroundImageSrc,
+  headingColor = "#333",
 }: CommonIntroSectionProps) {
   const hasMedia = !!imageSrc;
 
@@ -81,6 +83,7 @@ export default function CommonIntroSection({
     <section
       className={styles.introSection}
       style={{
+        backgroundSize: "cover",
         backgroundColor,
         backgroundImage: backgroundImageSrc
           ? `url(${backgroundImageSrc})`
@@ -97,7 +100,9 @@ export default function CommonIntroSection({
       )}
       {heading && (
         <div className={styles.header}>
-          <h1 className={styles.heading}>{heading}</h1>
+          <h1 className={styles.heading} style={{ color: headingColor }}>
+            {heading}
+          </h1>
         </div>
       )}
       {/* 상단 추가 콘텐츠 */}

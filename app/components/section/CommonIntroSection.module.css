@@ -96,3 +96,17 @@
     font-size: 1.5rem;
   }
 }
+
+.orderedList {
+  list-style: decimal;
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  color: #4b4b4b;
+  line-height: 1.9;
+}
+
+.orderedList li {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  letter-spacing: -0.02em;
+}

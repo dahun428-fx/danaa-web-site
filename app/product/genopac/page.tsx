@@ -117,7 +117,10 @@ export default function ProductGenopacPage() {
             heading="GenoPAC 유전자 분석 서비스"
             imageSrc="/resources/images/sub/sub_0203_img_01.jpg"
             subChildren={
-              <TextBlock text="기존 건강검진이 질병의 발견과 치료에 그 목적이 있었다면 유전자 분석 서비스는 현재의 질병 뿐만 아니라 미래에 발병할 수 있는 질병을 예측하여 집중 관리할 수 있는 최첨단 맞춤 의학 시스템 입니다." />
+              <TextBlock
+                maxWidth="600px"
+                text="기존 건강검진이 질병의 발견과 치료에 그 목적이 있었다면 유전자 분석 서비스는 현재의 질병 뿐만 아니라 미래에 발병할 수 있는 질병을 예측하여 집중 관리할 수 있는 최첨단 맞춤 의학 시스템 입니다."
+              />
             }
           />
           <CommonIntroSection
@@ -157,6 +160,7 @@ export default function ProductGenopacPage() {
             heading="차별화된 컨텐츠"
             subChildren={
               <CommonTableSection
+                isCheckIcon={true}
                 items={[
                   "한국인의 유병률을 고려하여 핵심 질환 항목 선정",
                   "암 이외에 주요 사망 요인으로 꼽히는 뇌혈관질환, 대사성질환, 폐질환 등 일반질환 항목을 추가로 구성",
@@ -166,6 +170,7 @@ export default function ProductGenopacPage() {
             }
           />
           <CommonIntroSection
+            backgroundImageSrc="/resources/images/sub/cms_bg_0202.jpg"
             isLine={false}
             subChildren={
               <ConditionCardGrid columns={2}>
@@ -343,7 +348,9 @@ export default function ProductGenopacPage() {
         </Tab>
         <Tab id="report" label="상품설명">
           <CommonIntroSection
+            backgroundImageSrc="/resources/images/sub/cms_bg_0204.jpg"
             heading="GenoPAC 유전자검사의 강점"
+            headingColor="#fff"
             subChildren={
               <ConditionCardGrid columns={3}>
                 <ConditionCard

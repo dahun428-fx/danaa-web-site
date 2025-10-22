@@ -1,5 +1,8 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import CommonIntroSection from "@/app/components/section/CommonIntroSection";
+import PageTitle from "@/app/components/section/PageTitle";
+import CommonTableSection from "@/app/components/section/CommonTableSection";
 
 const LITERATURE_LINKS = [
   { name: "보건연구정보센터", url: "http://www.richis.org" },
@@ -54,7 +57,12 @@ function LinkTable({
               <tr key={item.url}>
                 <th scope="row">{item.name}</th>
                 <td>
-                  <Link href={item.url} className={styles.link} target="_blank" rel="noreferrer">
+                  <Link
+                    href={item.url}
+                    className={styles.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {item.url}
                   </Link>
                 </td>
@@ -70,17 +78,17 @@ function LinkTable({
 export default function ResearchLinksPage() {
   return (
     <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>관련 사이트</h1>
-        <p>
-          노화 및 웰에이징 연구와 관련된 국내외 문헌 검색 서비스와 학회/단체
-          정보를 모았습니다. 추가로 공유하고 싶은 자료가 있으면 언제든지 제안해
-          주세요.
-        </p>
-      </section>
-
-      <LinkTable title="문헌 검색" links={LITERATURE_LINKS} />
-      <LinkTable title="학회 / 단체" links={ORGANIZATION_LINKS} />
+      <PageTitle title="관련 사이트" />
+      <CommonIntroSection
+        heading="문헌 검색"
+        backgroundColor="#ffffff"
+        subChildren={<LinkTable title="" links={LITERATURE_LINKS} />}
+      />
+      <CommonIntroSection
+        heading="학회 / 단체"
+        backgroundColor="#ffffff"
+        subChildren={<LinkTable title="" links={ORGANIZATION_LINKS} />}
+      />
     </main>
   );
 }

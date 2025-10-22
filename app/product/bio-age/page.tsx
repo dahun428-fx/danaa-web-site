@@ -14,6 +14,7 @@ import BioAgeCheckList from "./BioAgeCheckList";
 import PentagonProcess from "./PentagonProcess";
 import BioAgeComparison from "./BioAgeComparison";
 import CommonStepsBanner from "@/app/components/card/CommonStepsBanner";
+import TextBlock from "@/app/components/text/TextBlock";
 
 const HERO_COPY = [
   "세계 최초 40만 여 명의 임상 데이터를 기반으로 개발된 바이오에이지 생체나이 측정 시스템은 설문이 아닌 실제 건강검진 데이터를 분석하여 개인의 건강상태와 노화 정도를 정밀하게 진단합니다.",
@@ -279,17 +280,19 @@ export default function ProductBioAgePage() {
           <CommonIntroSection
             heading="개발배경"
             topChildren={
-              <p>
-                의학의 발전과 더불어 이에 관한 많은 임상 자료가 축적되며, 일부
+              <TextBlock
+                size="sm"
+                text="의학의 발전과 더불어 이에 관한 많은 임상 자료가 축적되며, 일부
                 선진국에서 노화 측정 시스템을 개발하여 임상에 적용하기
                 시작하였습니다. 2003년 국내에서는 대한생체나이의학연구소와
                 대한임상노화방지학회의 공동연구를 통해 외국시스템보다도 더욱
                 발전된 노화 측정 시스템 (Bio-Age®)이 개발되어 노화방지 진료에
-                새로운 장을 열게 되었습니다.
-              </p>
+                새로운 장을 열게 되었습니다."
+              />
             }
             subChildren={
               <CommonIntroSection
+                isLine={false}
                 imageSrc="/resources/images/sub/sub_0201_img_03.jpg"
                 title="생체나이 측정 시스템 개발 배경"
                 paragraphs={[
@@ -344,6 +347,7 @@ export default function ProductBioAgePage() {
             }
           />
           <CommonTableSection
+            isCheckIcon={true}
             heading="유전체 정보 분석 관련"
             items={GENOME_HIGHLIGHTS}
           />
@@ -353,12 +357,12 @@ export default function ProductBioAgePage() {
           <CommonIntroSection
             heading="생체나이 건강검진"
             topChildren={
-              <p>
-                세계 최초 40만 여 명의 임상 데이터로 개발된 노화를 측정할 수
+              <TextBlock
+                text="세계 최초 40만 여 명의 임상 데이터로 개발된 노화를 측정할 수
                 있는 유일한 시스템인 바이오에이지 생체나이 측정시스템은 설문이
                 아닌 실제 검진데이터를 분석하여 개인의 건강상태와 노화정도를
-                측정하는 시스템 입니다.
-              </p>
+                측정하는 시스템 입니다."
+              />
             }
             subChildren={
               <CommonStepsBanner
@@ -450,13 +454,13 @@ export default function ProductBioAgePage() {
           <CommonIntroSection
             heading="생체나이 분석 리포트 (질환관리형)"
             topChildren={
-              <p>
-                한국인 30만여 명의 임상데이터를 기반으로 한국인 주요 만성질환
+              <TextBlock
+                text="한국인 30만여 명의 임상데이터를 기반으로 한국인 주요 만성질환
                 4가지 (제2형 당뇨, 고혈압, 뇌혈관질환, 관상동맥질환)의 발병
                 가능성을 예측하고, 동일 연령대의 발병 가능성과 비교하여 현재
                 수검자의 상태를 알려드립니다. 또한, 운동 및 식이를 통해 개선
-                가이드를 제공합니다.
-              </p>
+                가이드를 제공합니다."
+              />
             }
             subChildren={
               <div
@@ -495,7 +499,13 @@ export default function ProductBioAgePage() {
           />
           <CommonIntroSection
             heading="도입효과"
-            children={<BioAgeComparison />}
+            children={
+              <TextBlock
+                size="sm"
+                text="질병의 유무만을 관리하고 일회성으로만 끝나던 기존 검진에서 벗어나 노화관리 및 질병예방이라는 컨셉으로 고객의 노화요인을 분석하고 관리 지침을 제공합니다. 기존 검진과의 차별성에 따른 신규 고객창출이 가능하며, 노화속도 추적관리를 위한 재검진 및 고객 만족도 증가 등의 매출향상 효과를 기대할 수 있습니다."
+              />
+            }
+            subChildren={<BioAgeComparison />}
           />
         </Tab>
       </Tabs>

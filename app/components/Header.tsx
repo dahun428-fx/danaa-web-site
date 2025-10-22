@@ -48,26 +48,26 @@ const NAV_ITEMS: NavItem[] = [
       { label: "관련사이트", href: "/research/links" },
     ],
   },
-  {
-    label: "고객센터",
-    href: "/support/notices",
-    match: "/support",
-    subItems: [
-      { label: "공지사항", href: "/support/notices" },
-      { label: "자주묻는질문", href: "/support/faq" },
-      { label: "도입·제휴문의", href: "/support/contact" },
-    ],
-  },
-  {
-    label: "PR센터",
-    href: "/pr/news",
-    match: "/pr",
-    subItems: [
-      { label: "보도자료", href: "/pr/news" },
-      { label: "건강매거진", href: "/pr/magazine" },
-      { label: "CI 매뉴얼", href: "/pr/ci" },
-    ],
-  },
+  // {
+  //   label: "고객센터",
+  //   href: "/support/notices",
+  //   match: "/support",
+  //   subItems: [
+  //     { label: "공지사항", href: "/support/notices" },
+  //     { label: "자주묻는질문", href: "/support/faq" },
+  //     { label: "도입·제휴문의", href: "/support/contact" },
+  //   ],
+  // },
+  // {
+  //   label: "PR센터",
+  //   href: "/pr/news",
+  //   match: "/pr",
+  //   subItems: [
+  //     { label: "보도자료", href: "/pr/news" },
+  //     { label: "건강매거진", href: "/pr/magazine" },
+  //     { label: "CI 매뉴얼", href: "/pr/ci" },
+  //   ],
+  // },
 ];
 
 export function Header() {

@@ -89,10 +89,12 @@ export default function CorpProgramFlow() {
         <div className={styles.cardWide}>
           <h4 className={styles.cardHead}>대응비즈케어</h4>
           <hr className={styles.cardRule} />
+          <div style={{ fontWeight: "bold", marginBottom: "0.8rem" }}>
+            기업 건강분석(인사복지담당자)
+          </div>
           <ul className={styles.list}>
-            <li>기업 건강분석(인사복지담당자)</li>
-            <li>· 기업/부서별/성별/연령별 생체나이 분석</li>
-            <li>· 기업 노화요인(대사증후군) 분석</li>
+            <li>기업/부서별/성별/연령별 생체나이 분석</li>
+            <li>기업 노화요인(대사증후군) 분석</li>
           </ul>
         </div>
 
