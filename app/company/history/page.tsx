@@ -104,7 +104,10 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
       {
         year: "2008",
         events: [
-          { month: "5월", description: "체형나이 프로젝트 운영(힐리언스 선마을)" },
+          {
+            month: "5월",
+            description: "체형나이 프로젝트 운영(힐리언스 선마을)",
+          },
           { month: "10월", description: "제1회 다나아데이터 세미나 개최" },
         ],
       },
@@ -165,10 +168,14 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
       {
         year: "2003",
         events: [
-          { month: "2월", description: "Bio-Age® 생체나이 측정시스템 개발(1.0 버전)" },
+          {
+            month: "2월",
+            description: "Bio-Age® 생체나이 측정시스템 개발(1.0 버전)",
+          },
           {
             month: "12월",
-            description: "Bio-Age® 생체나이 측정시스템 상용화 및 국내 특허 출원",
+            description:
+              "Bio-Age® 생체나이 측정시스템 상용화 및 국내 특허 출원",
           },
         ],
       },
@@ -177,8 +184,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
         events: [
           {
             month: "10월",
-            description:
-              "노화 방지 의료산업 진출을 위한 장·단기 전략 수립",
+            description: "노화 방지 의료산업 진출을 위한 장·단기 전략 수립",
           },
           {
             month: "12월",
@@ -195,10 +201,6 @@ export default function CompanyHistoryPage() {
     <main className={styles.wrapper}>
       <section className={styles.intro}>
         <h1>연혁</h1>
-        <p>
-          DANAA는 2002년 창립 이후 생체나이 측정 기술과 헬스케어 서비스를
-          고도화하며 국내외 의료 시장에서 신뢰받는 파트너로 성장해 왔습니다.
-        </p>
       </section>
 
       {TIMELINE_GROUPS.map((group) => (
@@ -214,7 +216,10 @@ export default function CompanyHistoryPage() {
                 <h2 className={styles.yearHeading}>{year.year}</h2>
                 <ul className={styles.events}>
                   {year.events.map((event) => (
-                    <li key={`${year.year}-${event.month}-${event.description}`} className={styles.event}>
+                    <li
+                      key={`${year.year}-${event.month}-${event.description}`}
+                      className={styles.event}
+                    >
                       <strong>{event.month}</strong>
                       <span>{event.description}</span>
                     </li>

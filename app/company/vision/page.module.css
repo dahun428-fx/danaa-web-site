@@ -183,3 +183,131 @@
     height: 60px;
   }
 }
+.tableSection {
+  margin: 80px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+  color: #0f172a;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+.sectionHeader {
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.sectionHeader h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0c5a90;
+}
+
+.sectionHeader p {
+  font-size: 1.05rem;
+  color: rgba(15, 23, 42, 0.7);
+  line-height: 1.6;
+}
+
+/* 테이블 전체 래퍼 */
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 16px;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* 테이블 기본 */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.table thead {
+  background: #f8fafc;
+}
+
+.table thead th {
+  text-align: center;
+  padding: 18px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0c5a90;
+  border-bottom: 2px solid rgba(15, 23, 42, 0.1);
+}
+
+/* 바디 */
+.table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: #f9fbfd;
+}
+
+.table tbody th,
+.table tbody td {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  vertical-align: middle;
+}
+
+/* 첫 번째 열 (구분) - 중앙 정렬 */
+.table tbody th {
+  font-weight: 600;
+  color: #0f172a;
+  background: #f9fafb;
+  width: 22%;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* 두 번째 열 (대표 상품) - 중앙 정렬 */
+.table tbody td:first-of-type {
+  width: 25%;
+  font-weight: 500;
+  text-align: center;
+  color: #1e293b;
+}
+
+/* 세 번째 열 (특징 리스트) */
+.table tbody td ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.table tbody td ul li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.table tbody td ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #0c5a90;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .sectionHeader h1 {
+    font-size: 1.8rem;
+  }
+  .sectionHeader p {
+    font-size: 0.95rem;
+  }
+  .table thead th,
+  .table tbody td,
+  .table tbody th {
+    padding: 14px;
+  }
+}

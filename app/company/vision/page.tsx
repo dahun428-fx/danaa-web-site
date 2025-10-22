@@ -72,13 +72,12 @@ const COMPETENCIES = [
 export default function CompanyVisionPage() {
   return (
     <main className={styles.wrapper}>
+      <section className={styles.intro}>
+        <h1>비전</h1>
+      </section>
       <section className={styles.hero}>
         <div className={styles.sectionHeader}>
           <h1>사업영역 및 비즈니스 모델</h1>
-          <p>
-            DANAA는 생체나이 분석 기술을 중심으로 유전자, 통계, 기업 헬스케어
-            영역을 아우르며 건강관리의 새로운 표준을 만들어가고 있습니다.
-          </p>
         </div>
         <div className={clsx(styles.heroImage, styles.heroImage2)}>
           <Image
@@ -89,30 +88,6 @@ export default function CompanyVisionPage() {
             priority
           />
         </div>
-      </section>
-
-      <section className={styles.cards}>
-        {SERVICE_LINES.map((service) => (
-          <article key={service.title} className={styles.card}>
-            <div className={styles.cardIcon}>
-              <Image
-                src={service.icon}
-                alt=""
-                width={48}
-                height={48}
-                aria-hidden
-              />
-            </div>
-            <div className={styles.cardBody}>
-              <h2>{service.title}</h2>
-              <ul>
-                {service.details.map((detail) => (
-                  <li key={detail}>{detail}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
       </section>
 
       <section className={styles.tableSection}>
