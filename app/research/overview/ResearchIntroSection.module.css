@@ -1,0 +1,42 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 2rem;
+  background-color: #fff;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #b99d6b; /* 고급스러운 베이지 톤 */
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 950px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  max-width: 800px;
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}

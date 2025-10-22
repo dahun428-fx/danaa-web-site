@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import PageTitle from "@/app/components/section/PageTitle";
 
 type TimelineEvent = {
   month: string;
@@ -199,9 +200,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
 export default function CompanyHistoryPage() {
   return (
     <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>연혁</h1>
-      </section>
+      <PageTitle title="연혁" />
 
       {TIMELINE_GROUPS.map((group) => (
         <section

@@ -1,0 +1,223 @@
+.cont {
+  color: #111827;
+  font-family: "Pretendard", "Noto Sans KR", system-ui, -apple-system,
+    sans-serif;
+  line-height: 1.6;
+}
+/* 1) 전역 태그 → 스코프 */
+.cont a {
+  color: #111827;
+  text-decoration: none;
+}
+.cont a:hover {
+  text-decoration: underline;
+}
+
+/* 2) .screen_out이 필요하면 추가 (hide_text와 동일) */
+.screen_out {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 3) how_bus를 확실히 export (체이닝 외 단독 선언; 내용 없어도 됨) */
+.how_bus {
+}
+.section {
+  padding: 20px 0;
+  border-top: 1px solid #e5e7eb; /* 섹션 구분선 */
+}
+.section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.title {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.wrap_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 시각숨김 (접근성용) */
+.hide_text {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== 주소/전화 ===== */
+.section_address {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  row-gap: 12px;
+  column-gap: 24px;
+  align-items: start;
+}
+.section_address .address,
+.section_address .phone {
+  display: contents;
+}
+
+.tit {
+  font-weight: 700;
+  color: #374151;
+}
+.txt {
+  color: #111827;
+}
+
+/* ===== 주변 지하철 ===== */
+.section_subway .wrap_list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+/* 지하철 원형 배지 숫자 */
+.ico_subway::before {
+  content: "";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  margin-right: 6px;
+}
+/* 9호선 */
+.ico_subway09::before {
+  content: "9";
+  background: #c5a24a;
+}
+/* 2호선 */
+.ico_subway02::before {
+  content: "2";
+  background: #2db400;
+}
+
+/* ===== 주변 정류장 (번호 원형) ===== */
+.section_busstop .wrap_list {
+  counter-reset: stop;
+}
+.section_busstop .wrap_list li {
+  position: relative;
+  padding-left: 34px;
+}
+.section_busstop .wrap_list li::before {
+  counter-increment: stop;
+  content: counter(stop);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4b5563;
+  background: #fff;
+  box-shadow: inset 0 0 0 1.5px #d1d5db;
+}
+.section_busstop .icon_bus {
+  display: none;
+} /* 스프라이트 대신 숨김 */
+
+/* ===== 주변 버스 (유형 배지) ===== */
+.section_busline .wrap_list.how_bus {
+  gap: 10px 18px;
+}
+.section_busline .how_bus li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.section_busline .icon_bus {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+/* 지선/마을 색상 */
+.section_busline .ico_bus2 .icon_bus {
+  background: #16a34a;
+} /* 지선 */
+.section_busline .ico_bus7 .icon_bus {
+  background: #65a30d;
+} /* 마을 */
+
+.section_busline .txt {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+.section_busline .txt_item + .txt_item::before {
+  content: "·";
+  margin-right: 10px;
+  color: #9ca3af;
+}
+
+/* 섹션 타이틀 여백 */
+.section_subway .title,
+.section_busstop .title,
+.section_busline .title {
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+.section_subway,
+.section_busstop,
+.section_busline {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 640px) {
+  .section_address {
+    grid-template-columns: 80px 1fr;
+  }
+  .section_subway .wrap_list,
+  .section_busstop .wrap_list,
+  .section_busline .wrap_list {
+    gap: 10px 14px;
+  }
+  .section_busstop .wrap_list li {
+    padding-left: 30px;
+  }
+  .section_busstop .wrap_list li::before {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+}

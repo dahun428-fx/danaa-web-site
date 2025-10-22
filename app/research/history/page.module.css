@@ -7,10 +7,12 @@
   gap: 3.5rem;
 }
 
+/* 소개 섹션 */
 .intro {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  text-align: center;
 }
 
 .intro h1 {
@@ -25,26 +27,16 @@
   line-height: 1.7;
 }
 
+/* ✅ 타임라인 그룹 (이미지 옆 배치) */
 .block {
   display: grid;
-  gap: 2rem;
+  grid-template-columns: 1fr 480px; /* 타임라인 왼쪽, 이미지 오른쪽 */
+  gap: 3rem;
   align-items: start;
 }
 
-.block[data-reverse="true"] .imageWrap {
-  order: -1;
-}
-
-.imageWrap {
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
-}
-
-.imageWrap :global(img) {
-  width: 100%;
-  height: auto;
-  display: block;
+.block[data-reverse="true"] {
+  grid-template-columns: 480px 1fr; /* 반대 배치 (이미지 왼쪽) */
 }
 
 .timeline {
@@ -89,6 +81,20 @@
   color: #0f172a;
 }
 
+/* 이미지 */
+.imageWrap {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+}
+
+.imageWrap :global(img) {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 반응형 */
 @media (max-width: 960px) {
   .wrapper {
     padding-top: 4.5rem;
@@ -96,10 +102,7 @@
 
   .block {
     grid-template-columns: 1fr;
-  }
-
-  .block[data-reverse="true"] .imageWrap {
-    order: 0;
+    gap: 2rem;
   }
 
   .year {

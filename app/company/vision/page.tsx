@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import clsx from "clsx";
+import PageTitle from "@/app/components/section/PageTitle";
+import CommonIntroSection from "@/app/components/section/CommonIntroSection";
 
 const SERVICE_LINES = [
   {
@@ -72,59 +74,45 @@ const COMPETENCIES = [
 export default function CompanyVisionPage() {
   return (
     <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>비전</h1>
-      </section>
-      <section className={styles.hero}>
-        <div className={styles.sectionHeader}>
-          <h1>사업영역 및 비즈니스 모델</h1>
-        </div>
-        <div className={clsx(styles.heroImage, styles.heroImage2)}>
-          <Image
-            src="/resources/images/sub/sub_0102_img_01.jpg"
-            alt="DANAA 사업 영역 개요"
-            width={1200}
-            height={1000}
-            priority
-          />
-        </div>
-      </section>
+      <PageTitle title="비전" />
+      <CommonIntroSection
+        heading="사업영역 및 비즈니스 모델"
+        imageSrc="/resources/images/sub/sub_0102_img_01.jpg"
+        backgroundColor="#fff"
+      />
 
-      <section className={styles.tableSection}>
-        <div className={styles.sectionHeader}>
-          <h1>핵심역량</h1>
-          <p>
-            축적된 임상 데이터와 IT 기술 역량을 바탕으로, 고객의 건강 수준을
-            정밀하게 분석하고 실행 가능한 솔루션을 제공합니다.
-          </p>
-        </div>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th scope="col">구분</th>
-                <th scope="col">대표 상품</th>
-                <th scope="col">특징</th>
-              </tr>
-            </thead>
-            <tbody>
-              {COMPETENCIES.map((item) => (
-                <tr key={item.category}>
-                  <th scope="row">{item.category}</th>
-                  <td>{item.product}</td>
-                  <td>
-                    <ul>
-                      {item.points.map((point) => (
-                        <li key={point}>{point}</li>
-                      ))}
-                    </ul>
-                  </td>
+      <CommonIntroSection
+        heading="핵심역량"
+        backgroundColor="#fff"
+        children={
+          <div className={styles.tableWrap}>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th scope="col">구분</th>
+                  <th scope="col">상품명</th>
+                  <th scope="col">특징</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+              </thead>
+              <tbody>
+                {COMPETENCIES.map((item) => (
+                  <tr key={item.category}>
+                    <th scope="row">{item.category}</th>
+                    <td>{item.product}</td>
+                    <td>
+                      <ul>
+                        {item.points.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        }
+      />
     </main>
   );
 }

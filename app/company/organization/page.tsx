@@ -1,5 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import clsx from "clsx";
+import PageTitle from "@/app/components/section/PageTitle";
+import CommonIntroSection from "@/app/components/section/CommonIntroSection";
 
 type OrgUnit = {
   name: string;
@@ -34,7 +37,8 @@ const ORGANIZATION: OrgUnit[] = [
   },
   {
     name: "연구소",
-    description: "생체나이 분석과 헬스케어 연구를 통해 기술 경쟁력을 강화합니다.",
+    description:
+      "생체나이 분석과 헬스케어 연구를 통해 기술 경쟁력을 강화합니다.",
     teams: ["생체나이 의학연구소"],
   },
 ];
@@ -42,44 +46,12 @@ const ORGANIZATION: OrgUnit[] = [
 export default function CompanyOrganizationPage() {
   return (
     <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>조직/인력</h1>
-        <p>
-          대표이사를 중심으로 전략, 개발, 마케팅, 영업, 경영, 연구 조직이 긴밀하게
-          협업하여 생체나이 기반 헬스케어 서비스를 제공합니다.
-        </p>
-      </section>
-      <section className={styles.hero}>
-        <div className={styles.heroImage}>
-          <Image
-            src="/resources/images/sub/sub_0104_img_01.jpg"
-            alt="다나아데이터 조직도"
-            width={960}
-            height={600}
-            priority
-          />
-        </div>
-      </section>
-      <section className={styles.structure}>
-        <h2>주요 조직 구성</h2>
-        <ul className={styles.structureList}>
-          {ORGANIZATION.map((unit) => (
-            <li key={unit.name} className={styles.node}>
-              <div className={styles.nodeTitle}>
-                {unit.name}
-                {unit.description ? <span>{unit.description}</span> : null}
-              </div>
-              {unit.teams ? (
-                <ul className={styles.nodeChildren}>
-                  {unit.teams.map((team) => (
-                    <li key={team}>{team}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </section>
+      <PageTitle title="조직/인력" />
+      <CommonIntroSection
+        heading="조직 구성"
+        imageSrc="/resources/images/sub/sub_0104_img_01.jpg"
+        backgroundColor="#fff"
+      />
     </main>
   );
 }

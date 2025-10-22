@@ -1,0 +1,56 @@
+.section {
+  background-color: #f9f5ef;
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  max-width: 960px;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.title::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #b99d6b;
+  margin: 0 auto 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-top: 1px solid #d8c3a1;
+}
+
+.table tr {
+  border-bottom: 1px solid #eee;
+}
+
+.number {
+  width: 50px;
+  text-align: center;
+  color: #555;
+  font-size: 1rem;
+  padding: 1.2rem 0;
+  border-right: 1px solid #f0f0f0;
+}
+
+.text {
+  padding: 1.2rem 1.5rem;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}

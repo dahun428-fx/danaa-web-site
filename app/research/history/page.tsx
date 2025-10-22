@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import PageTitle from "@/app/components/section/PageTitle";
 
 type TimelineEvent = {
   month: string;
@@ -114,7 +115,8 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
         events: [
           {
             month: "3월",
-            description: "Bio-Age® Plus 생체나이 측정시스템 업그레이드(3.0 버전)",
+            description:
+              "Bio-Age® Plus 생체나이 측정시스템 업그레이드(3.0 버전)",
           },
         ],
       },
@@ -123,7 +125,8 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
         events: [
           {
             month: "7월",
-            description: "Bio-Age® Plus 생체나이 측정시스템 업그레이드(2.0 버전)",
+            description:
+              "Bio-Age® Plus 생체나이 측정시스템 업그레이드(2.0 버전)",
           },
         ],
       },
@@ -194,14 +197,7 @@ const TIMELINE_GROUPS: TimelineGroup[] = [
 export default function ResearchHistoryPage() {
   return (
     <main className={styles.wrapper}>
-      <section className={styles.intro}>
-        <h1>연구소 연혁</h1>
-        <p>
-          다나아데이터 연구소는 2003년 생체나이 측정시스템 개발을 시작으로
-          지속적인 기술 고도화와 학술 연구를 통해 과학적인 웰에이징 솔루션을
-          구축해 왔습니다.
-        </p>
-      </section>
+      <PageTitle title="연구소 연혁" />
 
       {TIMELINE_GROUPS.map((group) => (
         <section
@@ -215,7 +211,10 @@ export default function ResearchHistoryPage() {
                 <h2 className={styles.yearLabel}>{year.year}</h2>
                 <ul className={styles.events}>
                   {year.events.map((event) => (
-                    <li key={`${year.year}-${event.month}-${event.description}`} className={styles.event}>
+                    <li
+                      key={`${year.year}-${event.month}-${event.description}`}
+                      className={styles.event}
+                    >
                       <strong>{event.month}</strong>
                       <span>{event.description}</span>
                     </li>
@@ -224,7 +223,8 @@ export default function ResearchHistoryPage() {
               </article>
             ))}
           </div>
-          {group.image ? (
+
+          {group.image && (
             <div className={styles.imageWrap}>
               <Image
                 src={group.image.src}
@@ -233,7 +233,7 @@ export default function ResearchHistoryPage() {
                 height={760}
               />
             </div>
-          ) : null}
+          )}
         </section>
       ))}
     </main>
