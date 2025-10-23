@@ -2,8 +2,6 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { email_info } from "@/app/config/constant";
 
-export const dynamic = "force-dynamic";
-
 export default function SupportContactPage() {
   return (
     <main className={styles.wrapper}>

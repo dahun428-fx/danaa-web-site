@@ -1,11 +1,3 @@
-:root {
-  --beige-50: #f7efe7;
-  --beige-200: #e7dbcf;
-  --beige-500: #b99d6b;
-  --text-700: #544d44;
-  --text-900: #2b2826;
-}
-
 .section {
   width: min(1180px, 100%);
   margin: 0 auto;
